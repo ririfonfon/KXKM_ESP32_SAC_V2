@@ -24,11 +24,7 @@ void do_effet_3() {
           strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
         }
       }
-      if (i <= NUM_LEDS_PER_STRIP * 2 & i >= NUM_LEDS_PER_STRIP) {
-        if (i >= (pix_pos) && i <= pix_start + (pix_pos)) {
-          strands[1]->pixels[i - NUM_LEDS_PER_STRIP] = pixelFromRGB(sr, sg, sb);
-        }
-      }
+
     }//for i
   }//pix_mod 20
 

@@ -12,7 +12,7 @@ void ledBlack() {
 #endif
   for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
     strands[0]->pixels[i] = pixelFromRGB(0, 0, 0);
-    strands[1]->pixels[i] = pixelFromRGB(0, 0, 0);
+//    strands[1]->pixels[i] = pixelFromRGB(0, 0, 0);
   }//for i
   leds_show();
 }//ledBlack
@@ -42,6 +42,9 @@ void initTest() {
   }//for i
   leds_show();
   delay(500);
+for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
+    strands[1]->pixels[i] = pixelFromRGB(0, 0, 0);
+  }//for i  
   Black();
   leds_show();
 }//initest

@@ -38,10 +38,8 @@ void do_effet_9() {
         pix_coefi = (((i - pix_pos) * 100) / pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
         strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        strands[1]->pixels[i] = pixelFromRGB(r * pix_coef, g * pix_coef, b * pix_coef);
       } else  {
         strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
       }
     }//for i
   }//pix_mod 30

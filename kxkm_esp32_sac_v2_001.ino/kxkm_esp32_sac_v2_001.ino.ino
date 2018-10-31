@@ -1,7 +1,7 @@
 /////////////////////////////////////////ID/////////////////////////////////////
 
 #define SAC_VP_NUMBER 1
-#define VERSION 0
+#define VERSION 1
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
 
@@ -10,16 +10,19 @@
 
 
 /////////////////////////////////////////Debug///////////////////////////////////////
-#define DEBUG 1
+//#define DEBUG 1
 //#define DEBUG_dmx 1
 //#define DEBUG_STR 1
 
 /////////////////////////////////////////lib/////////////////////////////////////////
+#include "KXKM_STM32_energy_API.h"
 #include <WiFi.h>
 #include <WiFiUdp.h>
 #include <ArtnetWifi.h>//https://github.com/rstephan/ArtnetWifi
 unsigned long lastRefresh = 0;
 #define REFRESH 10
+unsigned long lastRefresh_bat = 0;
+#define REFRESH_BAT 100
 
 #if defined(ARDUINO) && ARDUINO >= 100
 // No extras
@@ -39,7 +42,7 @@ byte myID;
 #define NUM_STRIPS 2
 int PINS[NUM_STRIPS] = {21, 22};
 const int numberOfChannels = NUM_STRIPS * NUM_LEDS_PER_STRIP * 3;
-const int numberOfLed = NUM_STRIPS * NUM_LEDS_PER_STRIP ;
+const int numberOfLed = NUM_LEDS_PER_STRIP ;
 strand_t STRANDS[NUM_STRIPS];
 strand_t * strands [] = { &STRANDS[0], &STRANDS[1]};
 bool randArray[numberOfLed];
@@ -110,6 +113,9 @@ int a;
 float str_blind_ws = 1;
 float str_blind_l = 1;
 
+int   percentage;
+int led_niv = 10;
+int etat_r = 0;
 
 ///////////////////////////////////// Artnet settings /////////////////////////////////////
 ArtnetWifi artnet;
@@ -123,6 +129,16 @@ int previousDataLength = 0;
 
 ///////////////////////////////////////////////// SETUP ////////////////////////////////////////
 void setup() {
+  // serial stm_32
+  Serial.begin(115200, SERIAL_8N1);
+  Serial.setTimeout(10);
+  //init_seuil_bat
+  sendSerialCommand(KXKM_STM32_Energy::SET_BATTERY_VOLTAGE_LOW, 21700);
+  sendSerialCommand(KXKM_STM32_Energy::SET_BATTERY_VOLTAGE_1, 23100);
+  sendSerialCommand(KXKM_STM32_Energy::SET_BATTERY_VOLTAGE_2, 23500);
+  sendSerialCommand(KXKM_STM32_Energy::SET_BATTERY_VOLTAGE_3, 24500);
+  sendSerialCommand(KXKM_STM32_Energy::SET_BATTERY_VOLTAGE_6, 29400);
+  
 #ifdef DEBUG
   Serial.begin(115200);
 #endif
@@ -133,12 +149,14 @@ void setup() {
 
   // NAME
   myID = eeprom_getID();
-  String myName("Pira");
-  sprintf(nodeName, "Pira %02i %i", myID, VERSION);
+  String myName("SAC_VP");
+  sprintf(nodeName, "SAC_VP %02i %i", myID, VERSION);
 #ifdef DEBUG
   Serial.print("Starting ");
   Serial.println(nodeName);
 #endif
+
+  //  pwm_init();
   leds_init();
   ConnectWifi();
   // OTA
@@ -160,6 +178,15 @@ void loop() {
   // MILLIS overflow protection
   if (millis() < lastRefresh) {
     lastRefresh = millis();
+  }
+  // bat
+    if ((millis() - lastRefresh_bat) > REFRESH_BAT) {
+    get_percentage();
+    lastRefresh_bat = millis();
+  }
+  // MILLIS overflow protection
+  if (millis() < lastRefresh_bat) {
+    lastRefresh_bat = millis();
   }
   // OTA
   ota_loop();

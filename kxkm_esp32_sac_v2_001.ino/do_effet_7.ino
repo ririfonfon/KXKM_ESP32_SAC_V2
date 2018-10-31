@@ -127,13 +127,7 @@ void do_effet_7() {
         if (i <= NUM_LEDS_PER_STRIP) {
           strands[0]->pixels[i] = pixelFromRGB(r * pix_coef, g * pix_coef, b * pix_coef);
         }
-      } else {
-        if (i <= NUM_LEDS_PER_STRIP) {
-          strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= NUM_LEDS_PER_STRIP * 2 & i >= NUM_LEDS_PER_STRIP) {
-          strands[1]->pixels[i - NUM_LEDS_PER_STRIP] = pixelFromRGB(sr, sg, sb);
-        }
-      }
+      } 
     }//for i
   }//pix_mod 70
 
