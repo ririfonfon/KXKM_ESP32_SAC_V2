@@ -2,8 +2,6 @@ void do_effet_4() {
   if (pix_mod >= 0 && pix_mod <= 10) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-      strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
-
     }//for i
   }//pix_mod 0
 
@@ -11,12 +9,8 @@ void do_effet_4() {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i >= (pix_pos) && i <= pix_start + (pix_pos)) {
         strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
-
       } else  {
         strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
-
       }
     }//for i
   }//pix_mod 10
@@ -30,14 +24,6 @@ void do_effet_4() {
           strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
         }
       }
-      if (i <= NUM_LEDS_PER_STRIP * 2 & i >= NUM_LEDS_PER_STRIP) {
-        if (i >= (pix_pos) && i <= pix_start + (pix_pos)) {
-          strands[1]->pixels[i - NUM_LEDS_PER_STRIP] = pixelFromRGB(sr, sg, sb);
-        } else {
-          strands[1]->pixels[i - NUM_LEDS_PER_STRIP] = pixelFromRGB(sr, sg, sb);
-        }
-      }
-
     }//for i
   }//pix_mod 20
 
@@ -52,10 +38,8 @@ void do_effet_4() {
         pix_coefi = (((i - pix_pos) * 100) / pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
         strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
       } else  {
         strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
       }
     }//for i
   }//pix_mod 30
@@ -72,11 +56,9 @@ void do_effet_4() {
         pix_coefi = (((pix_pos - ref_pix_pos) * 100) / pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
         strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
         ref_pix_pos--;
       } else  {
         strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
       }
     }//for i
   }//pix_mod 40
@@ -101,10 +83,8 @@ void do_effet_4() {
         }
         if (pix_coef > 1) pix_coef = 1;
         strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
       } else  {
         strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
       }
     }//for i
   }//pix_mod 50
@@ -122,15 +102,11 @@ void do_effet_4() {
 
         if (i <= NUM_LEDS_PER_STRIP) {
           strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= NUM_LEDS_PER_STRIP * 2 & i >= NUM_LEDS_PER_STRIP) {
-          strands[1]->pixels[i - NUM_LEDS_PER_STRIP] = pixelFromRGB(sr, sg, sb);
-        } 
+        }
       } else {
         if (i <= NUM_LEDS_PER_STRIP) {
           strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= NUM_LEDS_PER_STRIP * 2 & i >= NUM_LEDS_PER_STRIP) {
-          strands[1]->pixels[i - NUM_LEDS_PER_STRIP] = pixelFromRGB(sr, sg, sb);
-        } 
+        }
       }
     }//for i
   }//pix_mod 60
@@ -150,15 +126,11 @@ void do_effet_4() {
 
         if (i <= NUM_LEDS_PER_STRIP) {
           strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= NUM_LEDS_PER_STRIP * 2 & i >= NUM_LEDS_PER_STRIP) {
-          strands[1]->pixels[i - NUM_LEDS_PER_STRIP] = pixelFromRGB(sr, sg, sb);
         }
       } else {
         if (i <= NUM_LEDS_PER_STRIP) {
           strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= NUM_LEDS_PER_STRIP * 2 & i >= NUM_LEDS_PER_STRIP) {
-          strands[1]->pixels[i - NUM_LEDS_PER_STRIP] = pixelFromRGB(sr, sg, sb);
-        } 
+        }
       }
     }//for i
   }//pix_mod 70
@@ -185,14 +157,10 @@ void do_effet_4() {
 
         if (i <= NUM_LEDS_PER_STRIP) {
           strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= NUM_LEDS_PER_STRIP * 2 & i >= NUM_LEDS_PER_STRIP) {
-          strands[1]->pixels[i - NUM_LEDS_PER_STRIP] = pixelFromRGB(sr, sg, sb);
-        } 
+        }
       } else {
         if (i <= NUM_LEDS_PER_STRIP) {
           strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= NUM_LEDS_PER_STRIP * 2 & i >= NUM_LEDS_PER_STRIP) {
-          strands[1]->pixels[i - NUM_LEDS_PER_STRIP] = pixelFromRGB(sr, sg, sb);
         }
       }
     }//for i

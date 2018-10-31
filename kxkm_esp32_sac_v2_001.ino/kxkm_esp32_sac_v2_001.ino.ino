@@ -139,8 +139,6 @@ void setup() {
   Serial.print("Starting ");
   Serial.println(nodeName);
 #endif
-
-//  pwm_init();
   leds_init();
   ConnectWifi();
   // OTA

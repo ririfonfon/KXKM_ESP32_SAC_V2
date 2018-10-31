@@ -45,7 +45,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   if (pix_mod >= 11 && pix_mod <= 20 || pix_mod >= 31 && pix_mod <= 60 ) {
     pix_pos = (((pix_start + NUM_LEDS_PER_STRIP + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
   } else if (pix_mod >= 21 && pix_mod <= 30 || pix_mod >= 61 && pix_mod <= 90) {
-    pix_pos = (((pix_start + numberOfLed + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
+    pix_pos = (((pix_start + NUM_LEDS_PER_STRIP + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
   }
   modulo = data[adr + 7];
   str_ws = (data[adr + 8] * data[adr + 8]) / 33;
