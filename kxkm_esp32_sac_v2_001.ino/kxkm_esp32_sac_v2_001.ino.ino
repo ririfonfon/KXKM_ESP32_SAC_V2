@@ -5,7 +5,7 @@
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
 
-#define adr 1
+#define adr (1+(SAC_VP_NUMBER-1)*14)
 #define NUM_LEDS_PER_STRIP 29
 
 
