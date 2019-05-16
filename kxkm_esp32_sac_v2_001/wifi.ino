@@ -4,13 +4,15 @@
 #include <ArtnetWifi.h>
 
 /////////////////////////////////////////Wifi settings/////////////////////////////////////
-const char* ssid = "kxkm-wifi";
-const char* password = "KOMPLEXKAPHARNAUM";
+//const char* ssid = "kxkm-wifi";
+//const char* password = "KOMPLEXKAPHARNAUM";
+const char* ssid = "kxkm24";
+const char* password = "";
 
 bool wifi_available = false;
 
-IPAddress ip(2, 0, 0, 11);
-IPAddress gateway(10, 2, 0, 1);
+IPAddress ip(2, 0, 0, 101); // Static IP
+IPAddress gateway(2, 0, 0, 1);
 IPAddress subnet(255, 0, 0, 0);
 
 void ConnectWifi() {
