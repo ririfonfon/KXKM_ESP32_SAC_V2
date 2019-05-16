@@ -4,27 +4,26 @@
 #include <ArtnetWifi.h>
 
 /////////////////////////////////////////Wifi settings/////////////////////////////////////
-const char* ssid = "riri";
-const char* password = "288F42E7E8";
+//const char* ssid = "kxkm-wifi";
+//const char* password = "KOMPLEXKAPHARNAUM";
+const char* ssid = "kxkm24";
+const char* password = "";
 
 bool wifi_available = false;
 
-void ConnectWifi() {
-  IPAddress ip(2, 0, 0, eeprom_getID() + 100); // Static IP
-  IPAddress gateway(2, 0, 0, 1);
-  IPAddress subnet(255, 255, 255, 0);
-  // Enable wifi
-  WiFi.mode(WIFI_STA);
-  WiFi.config(ip, gateway, subnet);
+IPAddress ip(2, 0, 0, 101); // Static IP
+IPAddress gateway(2, 0, 0, 1);
+IPAddress subnet(255, 0, 0, 0);
 
+void ConnectWifi() {
   WiFi.onEvent(wifi_event);
-//  WiFi.begin(ssid, password);
+  WiFi.config(ip, gateway, subnet);
   WiFi.begin(ssid, password);
 #ifdef DEBUG
   Serial.println("");
   Serial.println("Connecting to WiFi");
   // Wait for connection
-  Serial.println("Connecting");
+  Serial.print("Connecting");
 #endif
 }//ConnectWifi
 
@@ -38,6 +37,7 @@ void wifi_event(WiFiEvent_t event) {
       rr = 0;
       gg = 0;
       bb = 0;
+      ww = 0;
       mod = 0;
       pix_mod = 0;
       pix_start = 0;
@@ -47,6 +47,7 @@ void wifi_event(WiFiEvent_t event) {
       srr = 0;
       sgg = 0;
       sbb = 0;
+      sww = 0;
       color_mode = 0;
       mirror = 0;
       break;

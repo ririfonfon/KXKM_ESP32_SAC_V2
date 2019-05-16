@@ -11,10 +11,8 @@ void ledBlack() {
   Serial.println("ledBlack()");
 #endif
   for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-    pi_n_1_r[i] = 0;
-    pi_n_1_g[i] = 0;
-    pi_n_1_b[i] = 0;
-    strands[1]->pixels[i] = pixelFromRGBW(0, 0, 0, 0);
+    strands[0]->pixels[i] = pixelFromRGBW(0, 0, 0, 0);
+    //    strands[1]->pixels[i] = pixelFromRGB(0, 0, 0);
   }//for i
   leds_show();
 }//ledBlack
@@ -51,7 +49,6 @@ void initTest() {
   leds_show();
   delay(500);
   for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-    strands[0]->pixels[i] = pixelFromRGBW(0, 0, 0, 0);
     strands[1]->pixels[i] = pixelFromRGBW(0, 0, 0, 0);
   }//for i
   Black();
