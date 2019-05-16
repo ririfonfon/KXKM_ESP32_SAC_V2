@@ -52,10 +52,10 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   pix_center = ((pix_start) / 2) + pix_pos;
 
   smaster = data[adr + 9];
-  srr = (data[adr + 10] * data[adr + 11]) / 255;
-  sgg = (data[adr + 11] * data[adr + 12]) / 255;
-  sbb = (data[adr + 12] * data[adr + 13]) / 255;
-  sww = (data[adr + 13] * data[adr + 14]) / 255;
+  srr = (data[adr + 10] * data[adr + 10]) / 255;
+  sgg = (data[adr + 11] * data[adr + 11]) / 255;
+  sbb = (data[adr + 12] * data[adr + 12]) / 255;
+  sww = (data[adr + 13] * data[adr + 13]) / 255;
 
 
   if ((modulo >= 0) && modulo <= 10) {
