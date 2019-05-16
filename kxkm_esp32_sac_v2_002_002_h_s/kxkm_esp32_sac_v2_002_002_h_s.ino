@@ -1,7 +1,7 @@
 /////////////////////////////////////////ID/////////////////////////////////////
 
 #define BAR_HS_NUMBER 1
-#define VERSION 1
+#define VERSION 1.04
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
 
@@ -84,7 +84,6 @@ float sr;
 float sg;
 float sb;
 float sw;
-int mod;
 int pix_mod;
 unsigned long t_now_effet = 0;
 uint8_t strob_count = 0;
@@ -102,15 +101,7 @@ int pix_start_v;
 int ref_pix_pos;
 float pix_coef;
 float pix_coefi;
-int M_g;
-int M_g_ref;
-int M_g1;
-int M_g1_ref;
-int M_g2;
-int M_g2_ref;
-int M_g3;
-int M_g3_ref;
-int M_g4;
+
 int S_seuil;
 int old_S_seuil = 0;
 int S_count;
