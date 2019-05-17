@@ -10,6 +10,11 @@ void Map1code() {
         pi_1_b[i] = bb;
         pi_1_w[i] = ww;
 
+        pi_1_sr[i] = srr;
+        pi_1_sg[i] = sgg;
+        pi_1_sb[i] = sbb;
+        pi_1_sw[i] = sww;
+
       }
     } else if (color_mode >= 11 && color_mode <= 20) {
       if (pix_mod >= 11 && pix_mod <= 20 || pix_mod >= 31 && pix_mod <= 60 || pix_mod >= 91 && pix_mod <= 120) {

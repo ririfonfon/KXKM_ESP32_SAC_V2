@@ -1,6 +1,6 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
 #define BAR_HS_NUMBER 1
-#define VERSION 1.04
+#define VERSION 1.07
 #define NOEUX 0
 
 ////////////////////////////////////////TaskHandle_t //////////////////////////////////
@@ -13,7 +13,7 @@
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
 #define adr (1+(BAR_HS_NUMBER-1)*16)
-#define NUM_LEDS_PER_STRIP 150
+#define NUM_LEDS_PER_STRIP 90
 int N_L_P_S = NUM_LEDS_PER_STRIP;
 
 /////////////////////////////////////////Debug///////////////////////////////////////
@@ -194,27 +194,30 @@ void setup() {
 
 ///////////////////////////////////////// LOOP /////////////////////////////////////////////////
 void loop() {
-  if (wifi_isok()) artnet.read();
-  Map1code();
-  eff_modulo();
-   effet();
-  if ((millis() - lastRefresh) > REFRESH) {
-    if (!wifi_isok())  ledBlack();//passe led noir
-    lastRefresh = millis();
-  }
-  // MILLIS overflow protection
-  if (millis() < lastRefresh) {
-    lastRefresh = millis();
-  }
+  if (wifi_isok()) {
+    artnet.read();
+    Map1code();
+    eff_modulo();
+    effet();
+  }// if wifi
+
+  //  if ((millis() - lastRefresh) > REFRESH) {
+  //    if (!wifi_isok())  ledBlack();//passe led noir
+  //    lastRefresh = millis();
+  //  }
+  //  // MILLIS overflow protection
+  //  if (millis() < lastRefresh) {
+  //    lastRefresh = millis();
+  //  }
   // bat
-  if ((millis() - lastRefresh_bat) > REFRESH_BAT) {
-    get_percentage();
-    lastRefresh_bat = millis();
-  }
-  // MILLIS overflow protection
-  if (millis() < lastRefresh_bat) {
-    lastRefresh_bat = millis();
-  }
+  //  if ((millis() - lastRefresh_bat) > REFRESH_BAT) {
+  //    get_percentage();
+  //    lastRefresh_bat = millis();
+  //  }
+  //  // MILLIS overflow protection
+  //  if (millis() < lastRefresh_bat) {
+  //    lastRefresh_bat = millis();
+  //  }
   // OTA
   ota_loop();
 }//loop
