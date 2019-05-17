@@ -40,7 +40,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   gg = (data[adr + 1] * data[adr + 1]) / 255;
   bb = (data[adr + 2] * data[adr + 2]) / 255;
   ww = (data[adr + 3] * data[adr + 3]) / 255;
-//  mod = data[adr + 4];
+  //  mod = data[adr + 4];
   pix_mod = data[adr + 4];
   pix_start = data[adr + 5] - 1;
   pix_pos_v = data[adr + 6];
@@ -54,7 +54,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   modulo = data[adr + 7];
   str_ws = (data[adr + 8] * data[adr + 8]) / 33;
   pix_center = ((pix_start) / 2) + pix_pos;
-//  M_g = (NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS;
+  //  M_g = (NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS;
   srr = (data[adr + 9] * data[adr + 9]) / 255;
   sgg = (data[adr + 10] * data[adr + 10]) / 255;
   sbb = (data[adr + 11] * data[adr + 11]) / 255;
@@ -64,9 +64,9 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
 
 
 
- 
+
   // modulo mode && mirror
-  if (mirror >= 0 && mirror <= 10) {
+  if (mirror >= 0 && mirror <= 10) {// no mirror
     N_L_P_S = (NUM_LEDS_PER_STRIP);
     if ((modulo >= 0) && modulo <= 10) {
       type_modulo = 0;
@@ -91,7 +91,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
       S_seuil = (modulo - 200) * 4;
       //    type_effet = 255;
     }
-  } else if (mirror >= 11 && mirror <= 20) {
+  } else if (mirror >= 11 && mirror <= 20) {// mirror <>
     N_L_P_S = (NUM_LEDS_PER_STRIP / 2);
     if ((modulo >= 0) && modulo <= 10) {
       type_modulo = 10;
@@ -116,7 +116,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
       S_seuil = (modulo - 200) * 4;
       //    type_effet = 255;
     }
-  } else if (mirror >= 21 && mirror <= 30) {
+  } else if (mirror >= 21 && mirror <= 30) {// mirror <><
     N_L_P_S = (NUM_LEDS_PER_STRIP / 3);
     if ((modulo >= 0) && modulo <= 10) {
       type_modulo = 20;
@@ -141,7 +141,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
       S_seuil = (modulo - 200) * 4;
       //    type_effet = 255;
     }
-  } else if (mirror >= 31 && mirror <= 40) {
+  } else if (mirror >= 31 && mirror <= 40) {// mirror <><>
     N_L_P_S = (NUM_LEDS_PER_STRIP / 4);
     if ((modulo >= 0) && modulo <= 10) {
       type_modulo = 30;
@@ -151,7 +151,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
       type_modulo = 32;
     } else if ((modulo >= 31) && modulo <= 110) {
       Black();
-      type_modulo = 3;
+      type_modulo = 33;
       S_seuil = (modulo - 30) * 4;
       //    type_effet = 255;
     } else if ((modulo >= 111) && modulo <= 120) {
@@ -166,6 +166,81 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
       S_seuil = (modulo - 200) * 4;
       //    type_effet = 255;
     }
+  } else if (mirror >= 41 && mirror <= 50) {// mirror <<
+    N_L_P_S = (NUM_LEDS_PER_STRIP / 2);
+    if ((modulo >= 0) && modulo <= 10) {
+      type_modulo = 40;
+    } else if ((modulo >= 11) && modulo <= 20) {
+      type_modulo = 41;
+    } else if ((modulo >= 21) && modulo <= 30) {
+      type_modulo = 42;
+    } else if ((modulo >= 31) && modulo <= 110) {
+      Black();
+      type_modulo = 43;
+      S_seuil = (modulo - 30) * 4;
+      //    type_effet = 255;
+    } else if ((modulo >= 111) && modulo <= 120) {
+      type_modulo = 44;
+    } else if ((modulo >= 121) && modulo <= 200) {
+      Black();
+      type_modulo = 45;
+      S_seuil = (modulo - 120) * 4;
+      //    type_effet = 255;
+    } else if ((modulo >= 201) && modulo <= 255) {
+      type_modulo = 46;
+      S_seuil = (modulo - 200) * 4;
+      //    type_effet = 255;
+    }
+  } else if (mirror >= 51 && mirror <= 60) {// mirror <<<
+    N_L_P_S = (NUM_LEDS_PER_STRIP / 3);
+    if ((modulo >= 0) && modulo <= 10) {
+      type_modulo = 50;
+    } else if ((modulo >= 11) && modulo <= 20) {
+      type_modulo = 51;
+    } else if ((modulo >= 21) && modulo <= 30) {
+      type_modulo = 52;
+    } else if ((modulo >= 31) && modulo <= 110) {
+      Black();
+      type_modulo = 53;
+      S_seuil = (modulo - 30) * 4;
+      //    type_effet = 255;
+    } else if ((modulo >= 111) && modulo <= 120) {
+      type_modulo = 54;
+    } else if ((modulo >= 121) && modulo <= 200) {
+      Black();
+      type_modulo = 55;
+      S_seuil = (modulo - 120) * 4;
+      //    type_effet = 255;
+    } else if ((modulo >= 201) && modulo <= 255) {
+      type_modulo = 56;
+      S_seuil = (modulo - 200) * 4;
+      //    type_effet = 255;
+    }
+  } else if (mirror >= 61 && mirror <= 70) {// mirror <<<<
+    N_L_P_S = (NUM_LEDS_PER_STRIP / 4);
+    if ((modulo >= 0) && modulo <= 10) {
+      type_modulo = 60;
+    } else if ((modulo >= 11) && modulo <= 20) {
+      type_modulo = 61;
+    } else if ((modulo >= 21) && modulo <= 30) {
+      type_modulo = 62;
+    } else if ((modulo >= 31) && modulo <= 110) {
+      Black();
+      type_modulo = 63;
+      S_seuil = (modulo - 30) * 4;
+      //    type_effet = 255;
+    } else if ((modulo >= 111) && modulo <= 120) {
+      type_modulo = 64;
+    } else if ((modulo >= 121) && modulo <= 200) {
+      Black();
+      type_modulo = 65;
+      S_seuil = (modulo - 120) * 4;
+      //    type_effet = 255;
+    } else if ((modulo >= 201) && modulo <= 255) {
+      type_modulo = 66;
+      S_seuil = (modulo - 200) * 4;
+      //    type_effet = 255;
+    }
   }
 
   previousDataLength = length;
@@ -173,5 +248,5 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   if (sendFrame) {
     // Reset universeReceived to 0
     memset(universesReceived, 0, maxUniverses);
-  }
+  }//sendFrame
 }//onframedmx
