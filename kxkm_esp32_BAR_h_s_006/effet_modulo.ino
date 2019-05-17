@@ -796,7 +796,7 @@ void eff_modulo() {
         strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[i] / 255) * master), ((pi_n_1_g[i] / 255) * master), ((pi_n_1_b[i] / 255) * master), ((pi_n_1_w[i] / 255) * master));
 
       } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-        int di = map(i, N_L_P_S + 1, NUM_LEDS_PER_STRIP, N_L_P_S, 0);
+        int di = map(i, N_L_P_S + 1, NUM_LEDS_PER_STRIP, 0, N_L_P_S);
 
         strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * master), ((pi_n_1_g[di] / 255) * master), ((pi_n_1_b[di] / 255) * master), ((pi_n_1_w[di] / 255) * master));
 
