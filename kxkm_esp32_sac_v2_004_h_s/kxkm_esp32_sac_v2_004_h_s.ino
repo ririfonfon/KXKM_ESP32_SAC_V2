@@ -29,7 +29,7 @@ int N_L_P_S = NUM_LEDS_PER_STRIP;
 unsigned long lastRefresh = 0;
 #define REFRESH 10
 unsigned long lastRefresh_bat = 0;
-#define REFRESH_BAT 100
+#define REFRESH_BAT 10000
 
 
 #if defined(ARDUINO) && ARDUINO >= 100
