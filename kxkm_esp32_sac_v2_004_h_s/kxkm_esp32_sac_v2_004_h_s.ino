@@ -48,7 +48,7 @@ byte myID;
 #include "esp32_digital_led_lib.h"
 #define min(m,n) ((m)<(n)?(m):(n))
 #define NUM_STRIPS 2
-int PINS[NUM_STRIPS] = {21, 22};
+int PINS[NUM_STRIPS] = {22, 21};
 const int numberOfChannels = NUM_STRIPS * NUM_LEDS_PER_STRIP * 4;
 const int numberOfLed =  NUM_LEDS_PER_STRIP ;
 strand_t STRANDS[NUM_STRIPS];
