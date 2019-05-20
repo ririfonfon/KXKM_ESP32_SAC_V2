@@ -1,6 +1,6 @@
 
 void Map1code( void * pvParameters ) {
-//void Map1code() {
+  //void Map1code() {
   while (1) {
     // color mode
     if (color_mode >= 0 && color_mode <= 10) {
@@ -93,9 +93,11 @@ void Map1code( void * pvParameters ) {
 }
 
 void effTask( void * pvParameters ) {
-//  void effTask() {
+  //  void effTask() {
   while (1) {
-    effet();
+    do_effet_0();
+
+    leds_show();
     yield(); // rend la main
   }
 }
