@@ -11,7 +11,7 @@ const char* password = "";
 
 bool wifi_available = false;
 
-IPAddress ip(2, 0, 0, 101); // Static IP
+IPAddress ip(2, 0, 0, BAR_HS_NUMBER + 100); // Static IP
 IPAddress gateway(2, 0, 0, 1);
 IPAddress subnet(255, 0, 0, 0);
 

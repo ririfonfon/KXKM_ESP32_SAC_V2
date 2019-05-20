@@ -1,6 +1,6 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
 #define BAR_HS_NUMBER 1
-#define VERSION 1.09
+#define VERSION 10
 #define NOEUX 0
 
 ////////////////////////////////////////TaskHandle_t //////////////////////////////////
@@ -12,7 +12,8 @@
 #endif
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
-#define adr (1+(BAR_HS_NUMBER-1)*16)
+//#define adr (1+(BAR_HS_NUMBER-1)*16)
+#define adr 1
 #define NUM_LEDS_PER_STRIP 90
 int N_L_P_S = NUM_LEDS_PER_STRIP;
 
@@ -165,7 +166,7 @@ void setup() {
   Serial.begin(115200);
 #endif
   ///////////////////////////////////////////////// BAR_HS_NUMBER ID //////////////////////////////////////
-#ifdef BAR_HS_NUMBER_NUMBER
+#ifdef BAR_HS_NUMBER
   eeprom_setID((byte)BAR_HS_NUMBER);
 #endif
 
