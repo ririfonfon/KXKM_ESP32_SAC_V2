@@ -1,6 +1,6 @@
 
 void eff_modulo() {
-  int fade_coef = 2;
+  float fade_coef = 10;
   unsigned long t_now = millis();
   if ( type_modulo == 0 ) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
@@ -31,7 +31,9 @@ void eff_modulo() {
   else if (type_modulo == 2) {
     if (str_ws <= 0) str_ws = 1;
     float time_modulo = str_ws * fade_coef;
-    float module = 2 * abs( (t_now % str_ws) - time_modulo / 2) / time_modulo;
+    int t_modulo = str_ws * fade_coef;
+    //    float module = 2 * abs( (t_now % str_ws) - time_modulo / 2) / time_modulo;
+    float module = 2 * abs( (t_now % t_modulo) - time_modulo / 2) / time_modulo;
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
 
@@ -187,7 +189,8 @@ void eff_modulo() {
   else if (type_modulo == 12) {
     if (str_ws <= 0) str_ws = 1;
     float time_modulo = str_ws * fade_coef;
-    float module = 2 * abs( (t_now % str_ws) - time_modulo / 2) / time_modulo;
+    int t_modulo = str_ws * fade_coef;
+    float module = 2 * abs( (t_now % t_modulo) - time_modulo / 2) / time_modulo;
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
@@ -383,7 +386,8 @@ void eff_modulo() {
   else if (type_modulo == 22) {
     if (str_ws <= 0) str_ws = 1;
     float time_modulo = str_ws * fade_coef;
-    float module = 2 * abs( (t_now % str_ws) - time_modulo / 2) / time_modulo;
+    int t_modulo = str_ws * fade_coef;
+    float module = 2 * abs( (t_now % t_modulo) - time_modulo / 2) / time_modulo;
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
@@ -609,7 +613,8 @@ void eff_modulo() {
   else if (type_modulo == 32) {
     if (str_ws <= 0) str_ws = 1;
     float time_modulo = str_ws * fade_coef;
-    float module = 2 * abs( (t_now % str_ws) - time_modulo / 2) / time_modulo;
+    int t_modulo = str_ws * fade_coef;
+    float module = 2 * abs( (t_now % t_modulo) - time_modulo / 2) / time_modulo;
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
@@ -831,7 +836,8 @@ void eff_modulo() {
   else if (type_modulo == 42) {
     if (str_ws <= 0) str_ws = 1;
     float time_modulo = str_ws * fade_coef;
-    float module = 2 * abs( (t_now % str_ws) - time_modulo / 2) / time_modulo;
+    int t_modulo = str_ws * fade_coef;
+    float module = 2 * abs( (t_now % t_modulo) - time_modulo / 2) / time_modulo;
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
@@ -1027,7 +1033,8 @@ void eff_modulo() {
   else if (type_modulo == 52) {
     if (str_ws <= 0) str_ws = 1;
     float time_modulo = str_ws * fade_coef;
-    float module = 2 * abs( (t_now % str_ws) - time_modulo / 2) / time_modulo;
+    int t_modulo = str_ws * fade_coef;
+    float module = 2 * abs( (t_now % t_modulo) - time_modulo / 2) / time_modulo;
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
@@ -1250,7 +1257,8 @@ void eff_modulo() {
   else if (type_modulo == 62) {
     if (str_ws <= 0) str_ws = 1;
     float time_modulo = str_ws * fade_coef;
-    float module = 2 * abs( (t_now % str_ws) - time_modulo / 2) / time_modulo;
+    int t_modulo = str_ws * fade_coef;
+    float module = 2 * abs( (t_now % t_modulo) - time_modulo / 2) / time_modulo;
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
