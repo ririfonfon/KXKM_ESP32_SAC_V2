@@ -1,5 +1,5 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
-#define BAR_HS_NUMBER 1
+#define BAR_HS_NUMBER 12
 #define VERSION 10
 #define NOEUX 0
 
@@ -8,12 +8,12 @@
 #if CONFIG_FREERTOS_UNICORE
 #define ARDUINO_RUNNING_CORE 0
 #else
-#define ARDUINO_RUNNING_CORE 1
+#define ARDUINO_RUNNING_CORE 1 
 #endif
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
-//#define adr (1+(BAR_HS_NUMBER-1)*16)
-#define adr 1
+#define adr (1+(BAR_HS_NUMBER-1)*16)
+//#define adr 1
 #define NUM_LEDS_PER_STRIP 90
 int N_L_P_S = NUM_LEDS_PER_STRIP;
 
