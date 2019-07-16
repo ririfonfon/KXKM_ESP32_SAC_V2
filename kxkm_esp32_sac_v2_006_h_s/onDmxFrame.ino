@@ -8,15 +8,13 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   Serial.print("master = ");
   Serial.println(master);
   Serial.print("r = ");
-  Serial.println(r);
+  Serial.println(rr);
   Serial.print("g = ");
-  Serial.println(g);
+  Serial.println(gg);
   Serial.print("b = ");
-  Serial.println(b);
+  Serial.println(bb);
   Serial.print("w = ");
-  Serial.println(w);
-  Serial.print("mod = ");
-  Serial.println(mod);
+  Serial.println(ww);
   Serial.print("pix_mod = ");
   Serial.println(pix_mod);
   Serial.print("pix_start = ");
@@ -31,8 +29,18 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   Serial.println(modulo);
   Serial.print("str_ws = ");
   Serial.println(str_ws);
-  Serial.print("M_g = ");
-  Serial.println(M_g);
+  Serial.print("srr = ");
+  Serial.println(srr);
+  Serial.print("sgg = ");
+  Serial.println(sgg);
+  Serial.print("sbb = ");
+  Serial.println(sbb);
+  Serial.print("sww = ");
+  Serial.println(sww);
+  Serial.print("color_mode = ");
+  Serial.println(color_mode);
+  Serial.print("mirror = ");
+  Serial.println(mirror);
 #endif
 
   master = data[adr - 1];
@@ -40,7 +48,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   gg = (data[adr + 1] * data[adr + 1]) / 255;
   bb = (data[adr + 2] * data[adr + 2]) / 255;
   ww = (data[adr + 3] * data[adr + 3]) / 255;
-//  mod = data[adr + 4];
+  //  mod = data[adr + 4];
   pix_mod = data[adr + 4];
   pix_start = data[adr + 5] - 1;
   pix_pos_v = data[adr + 6];
@@ -54,7 +62,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   modulo = data[adr + 7];
   str_ws = (data[adr + 8] * data[adr + 8]) / 33;
   pix_center = ((pix_start) / 2) + pix_pos;
-//  M_g = (NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS;
+  //  M_g = (NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS;
   srr = (data[adr + 9] * data[adr + 9]) / 255;
   sgg = (data[adr + 10] * data[adr + 10]) / 255;
   sbb = (data[adr + 11] * data[adr + 11]) / 255;
@@ -64,7 +72,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
 
 
 
- 
+
   // modulo mode && mirror
   if (mirror >= 0 && mirror <= 10) {
     N_L_P_S = (NUM_LEDS_PER_STRIP);
