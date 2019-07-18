@@ -67,19 +67,40 @@ void get_percentage() {
       strands[0]->pixels[i] = pixelFromRGB(127, 0, 0);
     }//for i
   }
-    else  {
-      //3ledrouge clignote
-      if (etat_r != 1) {
-        for (int i = 0 ; i < 3 ; i++) {
+  else  {
+    //3ledrouge clignote
+    if (etat_r != 1) {
+      for (int i = 0 ; i < 3 ; i++) {
         strands[0]->pixels[i] = pixelFromRGB(255, 0, 0);
-        }
-        etat_r = 1;
       }
-      else if (etat_r != 0) {
-        for (int i = 0 ; i < 3 ; i++) {
-       strands[0]->pixels[i] = pixelFromRGB(0, 0, 0);
-        }
-       etat_r = 0;
-      }
+      etat_r = 1;
     }
+    else if (etat_r != 0) {
+      for (int i = 0 ; i < 3 ; i++) {
+        strands[0]->pixels[i] = pixelFromRGB(0, 0, 0);
+      }
+      etat_r = 0;
+    }
+  }
+}
+
+void stm32_reset() {
+  sendSerialCommand(KXKM_STM32_Energy::SET_LOAD_SWITCH, 0);
+  sendSerialCommand(KXKM_STM32_Energy::REQUEST_RESET);
+  delay(1000);
+  Serial.println("STM did not reset, going with soft reset");
+  WiFi.disconnect();
+  delay(500);
+  ESP.restart();
+}
+
+void stm32_shutdown() {
+  sendSerialCommand(KXKM_STM32_Energy::SET_LOAD_SWITCH, 0);
+  sendSerialCommand(KXKM_STM32_Energy::SHUTDOWN);
+}
+
+byte stm32_batteryLevel() {
+  sendSerialCommand(KXKM_STM32_Energy::GET_BATTERY_PERCENTAGE);
+  byte battery = readSerialAnswer();
+  return battery;
 }
