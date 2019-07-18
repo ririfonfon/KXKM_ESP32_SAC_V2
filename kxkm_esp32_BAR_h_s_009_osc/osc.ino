@@ -1,8 +1,8 @@
 #include <WiFiUdp.h>
 #include <OSCMessage.h> //https://github.com/stahlnow/OSCLib-for-ESP8266
 
-int recv_port = 10000;
-int send_port = 12000;
+int recv_port = 1818;
+int send_port = 1819;
 
 bool osc_running = false;
 
@@ -27,8 +27,10 @@ void oscC_start() {
   serverIP[2] = myIP[2] | (~mask[2]);
   serverIP[3] = myIP[3] | (~mask[3]);
 
+#ifdef DEBUG
   Serial.print("OSC: Broadcasting on ");
   Serial.println(serverIP);
+#endif
 
   osc_running = true;
 
@@ -65,7 +67,11 @@ void oscC_task( void * parameter ) {
       len = udp_in.read(incomingPacket, 1470);
       if (len >= 0) {
         incomingPacket[len] = 0;
+
+#ifdef DEBUG
         Serial.printf("UDP: packet received: %s\n", incomingPacket);
+#endif
+
 
         // Parse Packet
         bool valid = oscC_parsePacket(String(incomingPacket), udp_in.remoteIP());
@@ -79,13 +85,13 @@ void oscC_task( void * parameter ) {
     }
 
     // Beacon out
-    if ((millis() - last_beacon) > 3000) {
+    if ((millis() - last_beacon) > 2000) {
       oscC_beacon(udp_out);
       last_beacon = millis();
     }
 
     // yield();
-    delay(1);
+    delay(100);
   }
 
   vTaskDelete(NULL);
@@ -93,29 +99,16 @@ void oscC_task( void * parameter ) {
 
 bool oscC_parsePacket(String command, IPAddress remote ) {
   String currentData = command;
-  String data = oscC_next(currentData);
-
-  // Check /esp
-  data = oscC_next(currentData);
-  if ( data != "esp") {
-    Serial.printf("Invalid packet: %s\n", command);
-    return false;
-  }
-
-  // Check MSG-COUNTER or /manual
-  data = oscC_next(currentData);
-  if (data != "manual") {
-    if ( data == lastPacket) {
-      //Serial.println("Already played");
-      return false;
-    }
-    lastPacket = data;
-  }
 
   // Check identity
+  String data = oscC_next(currentData);
+
   data = oscC_next(currentData);
+  if (data == "ping") return true;
   if (data != oscC_id() && data != "all" && data != oscC_ch()) {
-    //Serial.println("Not for me ... ");
+#ifdef DEBUG
+    Serial.println("Not for me ... " + data);
+#endif
     return false;
   }
 
@@ -165,8 +158,9 @@ bool oscC_parsePacket(String command, IPAddress remote ) {
   //
   //    leds_setPixel(s, p, red, green, blue);
   //  }
-
+#ifdef DEBUG
   else Serial.printf ("Command unknown: %s\n", data.c_str());
+#endif
 
   return true;
 }
@@ -197,14 +191,15 @@ void oscC_beacon(WiFiUDP udp_out)
   msg.add("stop");// audio media
   msg.add("");//audio_Error().c_str()
   msg.add(0);//audio bank
-  msg.add(100); // % sync sd
+  msg.add(0); // % sync sd
   msg.add("");//sunc error
 
   msg.send(udp_out);
 
   udp_out.endPacket();
-
-  //Serial.println("beacon");
+#ifdef DEBUG
+  Serial.println("beacon");
+#endif
 }
 
 //
@@ -225,7 +220,7 @@ String oscC_next(String& currentData) {
 
 
 String oscC_id() {
-  return String(BAR_HS_NUMBER);
+  return "e" + String(BAR_HS_NUMBER);
 }
 
 String oscC_ch() {

@@ -99,8 +99,8 @@ void stm32_shutdown() {
   sendSerialCommand(KXKM_STM32_Energy::SHUTDOWN);
 }
 
-byte stm32_batteryLevel() {
+int stm32_batteryLevel() {
   sendSerialCommand(KXKM_STM32_Energy::GET_BATTERY_PERCENTAGE);
-  byte battery = readSerialAnswer();
+  int battery = readSerialAnswer();
   return battery;
 }

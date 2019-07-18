@@ -1,6 +1,6 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
-#define BAR_HS_NUMBER 23
-#define VERSION 14
+#define BAR_HS_NUMBER 8
+#define VERSION 17
 #define NOEUX 0
 
 ////////////////////////////////////////TaskHandle_t //////////////////////////////////
@@ -8,7 +8,7 @@
 #if CONFIG_FREERTOS_UNICORE
 #define ARDUINO_RUNNING_CORE 0
 #else
-#define ARDUINO_RUNNING_CORE 1 
+#define ARDUINO_RUNNING_CORE 1
 #endif
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
@@ -180,6 +180,7 @@ void setup() {
   Serial.println(nodeName);
 #endif
 
+
   leds_init();
   ConnectWifi();
   // OTA
@@ -188,9 +189,12 @@ void setup() {
   artnet.setArtDmxCallback(onDmxFrame);
   initTest();
 
-//  create a task that will be executed in the Map1code() function, with priority 1 and executed on core 0
-    xTaskCreatePinnedToCore(Map1code, "Map1code", 4096, NULL, 1, NULL, 1);   // core 1 = loop
-    xTaskCreatePinnedToCore(effTask, "effTask", 4096, NULL, 1, NULL, 0);    // core 0 = wifi
+  //  create a task that will be executed in the Map1code() function, with priority 1 and executed on core 0
+  xTaskCreatePinnedToCore(Map1code, "Map1code", 4096, NULL, 1, NULL, 1);   // core 1 = loop
+  xTaskCreatePinnedToCore(effTask, "effTask", 4096, NULL, 1, NULL, 0);    // core 0 = wifi
+
+  ///////////////////////////////////////////////// osc //////////////////////////////////////
+  oscC_start();
 
 }//setup
 
@@ -198,9 +202,9 @@ void setup() {
 void loop() {
   if (wifi_isok()) {
     artnet.read();
-//    Map1code();
+    //    Map1code();
     eff_modulo();
-//    effet();
+    //    effet();
   }// if wifi
 
   //  if ((millis() - lastRefresh) > REFRESH) {
