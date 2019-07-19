@@ -26,6 +26,22 @@ void do_effet_0() {
     }//for i
   }//pix_mod 10
 
+  if (pix_mod >= 21 && pix_mod <= 30) {
+    for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
+      if (( ((i + pix_pos) / (pix_start + 2)) % 2 ) == 0) {
+        pi_n_1_r[i] = pi_1_r[i];
+        pi_n_1_g[i] = pi_1_g[i];
+        pi_n_1_b[i] = pi_1_b[i];
+        pi_n_1_w[i] = pi_1_w[i];
+      } else  {
+        pi_n_1_r[i] = pi_1_sr[i];
+        pi_n_1_g[i] = pi_1_sg[i];
+        pi_n_1_b[i] = pi_1_sb[i];
+        pi_n_1_w[i] = pi_1_sw[i];
+      }
+    }//for i
+  }//pix_mod 20
+
 
   if (pix_mod >= 31 && pix_mod <= 40) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {

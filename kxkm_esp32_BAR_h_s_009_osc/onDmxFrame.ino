@@ -54,15 +54,24 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   ww = (data[adr + 3] * data[adr + 3]) / 255;
   //  mod = data[adr + 4];
   pix_mod = data[adr + 4];
-  pix_start = data[adr + 5] - 1;
+  //    pix_start = data[adr + 5] - 1;
+  if (pix_mod >= 0 && pix_mod <= 20 || pix_mod >= 31 && pix_mod <= 255) {
+    pix_start = ((data[adr + 5]  * N_L_P_S) / 255) ;
+  }
+  else if (pix_mod >= 21 && pix_mod <= 30) {
+    pix_start = data[adr + 5] - 1;
+  }
   pix_pos_v = data[adr + 6];
 
   pix_end = pix_start + pix_start;
-  if (pix_mod >= 11 && pix_mod <= 20 || pix_mod >= 31 && pix_mod <= 60 || pix_mod >= 91 && pix_mod <= 120) {
-    pix_pos = (((pix_start + N_L_P_S + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
-  } else if (pix_mod >= 21 && pix_mod <= 30 || pix_mod >= 61 && pix_mod <= 90 || pix_mod >= 121 && pix_mod <= 150) {
-    pix_pos = (((pix_start + numberOfLed + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
-  }
+
+  //  if (pix_mod >= 11 && pix_mod <= 20 || pix_mod >= 31 && pix_mod <= 60 || pix_mod >= 91 && pix_mod <= 120) {
+
+  pix_pos = (((pix_start + N_L_P_S + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
+
+  //  } else if (pix_mod >= 21 && pix_mod <= 30 || pix_mod >= 61 && pix_mod <= 90 || pix_mod >= 121 && pix_mod <= 150) {
+  //    pix_pos = (((pix_start + numberOfLed + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
+  //  }
   modulo = data[adr + 7];
   str_ws = (data[adr + 8] * data[adr + 8]) / 33;
   pix_center = ((pix_start) / 2) + pix_pos;
