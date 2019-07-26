@@ -4,6 +4,15 @@
 void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* data) {
   boolean tail = false;
 
+#ifdef DEBUG_dmxframe
+  Serial.print("dmx frame: ");
+  for (int i=0; i<length; i++) {
+    Serial.print(data[i]);
+    Serial.print(" ");
+  }
+  Serial.println("");
+#endif
+
 #ifdef DEBUG_dmx
   Serial.print("data [1] = ");
   Serial.println(data [1]);

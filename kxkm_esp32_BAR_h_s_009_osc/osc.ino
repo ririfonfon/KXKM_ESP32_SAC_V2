@@ -60,6 +60,11 @@ void oscC_task( void * parameter ) {
   // loop
   while (osc_running) {
 
+    if (!wifi_isok()) {
+      delay(500);
+      continue;
+    }
+
     // Check if incoming packets
     if (udp_in.parsePacket()) {
 

@@ -23,7 +23,7 @@ void ConnectWifi() {
   Serial.println("");
   Serial.println("Connecting to WiFi");
   // Wait for connection
-  Serial.print("Connecting");
+  Serial.println("Connecting");
 #endif
 }//ConnectWifi
 
