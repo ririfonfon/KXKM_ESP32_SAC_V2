@@ -73,7 +73,7 @@ void parseE131() {
   ww = (data[adr + 3] * data[adr + 3]) / 255;
   //  mod = data[adr + 4];
   pix_mod = data[adr + 4];
-  //    pix_start = data[adr + 5] - 1;
+  
   if (pix_mod >= 0 && pix_mod <= 20 || pix_mod >= 31 && pix_mod <= 255) {
     pix_start = ((data[adr + 5]  * N_L_P_S) / 255) ;
   }
@@ -91,6 +91,7 @@ void parseE131() {
   //  } else if (pix_mod >= 21 && pix_mod <= 30 || pix_mod >= 61 && pix_mod <= 90 || pix_mod >= 121 && pix_mod <= 150) {
   //    pix_pos = (((pix_start + numberOfLed + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
   //  }
+  
   modulo = data[adr + 7];
   str_ws = (data[adr + 8] * data[adr + 8]) / 33;
   pix_center = ((pix_start) / 2) + pix_pos;
@@ -289,4 +290,5 @@ void parseE131() {
   //    // Reset universeReceived to 0
   //    memset(universesReceived, 0, maxUniverses);
   //  }//sendFrame
-}//onframedmx
+  
+}//parseE131()
