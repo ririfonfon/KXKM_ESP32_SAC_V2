@@ -1,7 +1,8 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
 #define BAR_HS_NUMBER 1
 #define VERSION 20
-#define NOEUX 0
+//#define NOEUX 0
+#define UNIVERSE 1                      // First DMX Universe to listen for
 
 ////////////////////////////////////////TaskHandle_t //////////////////////////////////
 //TaskHandle_t Map1;
@@ -164,7 +165,7 @@ int etat_r = 0;
 //int previousDataLength = 0;
 
 ///////////////////////////////////// SACN settings /////////////////////////////////////
-#define UNIVERSE 1                      // First DMX Universe to listen for
+//#define UNIVERSE 1                      // First DMX Universe to listen for
 #define UNIVERSE_COUNT 1               // Total number of Universes to listen for, starting at UNIVERSE
 // ESPAsyncE131 instance with UNIVERSE_COUNT buffer slots
 ESPAsyncE131 e131(UNIVERSE_COUNT);
@@ -188,17 +189,23 @@ void setup() {
   Serial.println(nodeName);
 #endif
 
-
+  ///////////////////////////////////////////////// LEDS //////////////////////////////////////
   leds_init();
+
+  ///////////////////////////////////////////////// WIFI //////////////////////////////////////
   ConnectWifi();
-  // OTA
+
+  ///////////////////////////////////////////////// OTA //////////////////////////////////////
   ota_setup();
-  // ARTNET
+
+  ///////////////////////////////////////////////// ARTNET //////////////////////////////////////
   //  artnet.begin();
   //  artnet.setArtDmxCallback(onDmxFrame);
-  // init
+
+  ///////////////////////////////////////////////// INIT //////////////////////////////////////
   initTest();
 
+  ///////////////////////////////////////////////// CORE //////////////////////////////////////
   //  create a task that will be executed in the Map1code() function, with priority 1 and executed on core 0
   xTaskCreatePinnedToCore(Map1code, "Map1code", 4096, NULL, 1, NULL, 1);   // core 1 = loop
   xTaskCreatePinnedToCore(effTask, "effTask", 4096, NULL, 1, NULL, 0);    // core 0 = wifi
@@ -226,6 +233,7 @@ void loop() {
   //  if (millis() < lastRefresh) {
   //    lastRefresh = millis();
   //  }
+  
   // bat
   //  if ((millis() - lastRefresh_bat) > REFRESH_BAT) {
   //    get_percentage();
@@ -235,6 +243,7 @@ void loop() {
   //  if (millis() < lastRefresh_bat) {
   //    lastRefresh_bat = millis();
   //  }
+  
   // OTA
   ota_loop();
 }//loop

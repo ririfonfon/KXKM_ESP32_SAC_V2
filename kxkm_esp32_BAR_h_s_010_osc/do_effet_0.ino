@@ -236,4 +236,4 @@ void do_effet_0() {
     }//for i
   }//pix_mod 110
 
-}// do_effet_0 modfix
+}// do_effet_0

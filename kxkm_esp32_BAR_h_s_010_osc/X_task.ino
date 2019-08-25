@@ -90,14 +90,12 @@ void Map1code( void * pvParameters ) {
     }//(color_mode >= 11 && color_mode <= 20)
 
   }//while
-}
+}//Map1code
 
 void effTask( void * pvParameters ) {
-  //  void effTask() {
   while (1) {
     do_effet_0();
-
     leds_show();
     yield(); // rend la main
   }
-}
+}//effTask

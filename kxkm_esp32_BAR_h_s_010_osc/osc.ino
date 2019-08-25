@@ -145,6 +145,8 @@ bool oscC_parsePacket(String command, IPAddress remote ) {
   //  else if (data == "loop") audio_loop((bool) oscC_next(currentData).toInt());
   else if (data == "reset") stm32_reset();
   else if (data == "shutdown") stm32_shutdown();
+
+  else if (data == "init")  initTest();
   //
   //  else if (data == "led") {
   //    String strip = oscC_next(currentData);
