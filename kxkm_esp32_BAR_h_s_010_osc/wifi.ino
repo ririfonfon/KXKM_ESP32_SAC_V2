@@ -6,8 +6,10 @@
 /////////////////////////////////////////Wifi settings/////////////////////////////////////
 //const char* ssid = "kxkm-wifi";
 //const char* password = "KOMPLEXKAPHARNAUM";
-const char* ssid = "kxkm24lulu";
-const char* password = "";
+//const char* ssid = "kxkm24lulu";
+//const char* password = "";
+const char* ssid = "riri_new";
+const char* password = "B2az41opbn6397";
 
 bool wifi_available = false;
 

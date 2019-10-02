@@ -1,5 +1,5 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
-#define BAR_HS_NUMBER 1
+#define BAR_HS_NUMBER 13
 #define VERSION 20
 //#define NOEUX 0
 #define UNIVERSE 1                      // First DMX Universe to listen for
@@ -15,11 +15,11 @@
 /////////////////////////////////////////Adresse/////////////////////////////////////
 #define adr (1+(BAR_HS_NUMBER-1)*16)
 //#define adr 1
-#define NUM_LEDS_PER_STRIP 30
+#define NUM_LEDS_PER_STRIP 300
 int N_L_P_S = NUM_LEDS_PER_STRIP;
 
 /////////////////////////////////////////Debug///////////////////////////////////////
-//#define DEBUG 1
+#define DEBUG 1
 //#define DEBUG_dmx 1
 //#define DEBUG_dmxframe 1
 //#define DEBUG_STR 1
