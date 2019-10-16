@@ -20,8 +20,8 @@ int N_L_P_S = NUM_LEDS_PER_STRIP;
 
 /////////////////////////////////////////Debug///////////////////////////////////////
 #define DEBUG 1
-//#define DEBUG_dmx 1
-//#define DEBUG_dmxframe 1
+#define DEBUG_dmx 1
+#define DEBUG_dmxframe 1
 //#define DEBUG_STR 1
 //#define DEBUGosc 1
 #define DEBUGwifi 1
