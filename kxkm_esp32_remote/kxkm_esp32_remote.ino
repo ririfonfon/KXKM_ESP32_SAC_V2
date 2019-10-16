@@ -15,7 +15,7 @@
 /**************************************************************************/
 /////////////////////////////////////////Debug///////////////////////////////////////
 #define DEBUG 1
-#define DEBUGbtnp 1
+//#define DEBUGbtnp 1
 
 /////////////////////////////////// variables////////////////////////////////////
 int is;
@@ -79,7 +79,7 @@ int mode_start_value = 0;
 #include <WiFi.h>
 #include <WiFiUdp.h>
 #include "LXDMXWiFi.h"
-#include <LXWiFiArtNet.h>
+//#include <LXWiFiArtNet.h>
 #include <LXWiFiSACN.h>
 #include "LXDMXWiFiConfig.h"
 #include "freertos/task.h"
@@ -94,11 +94,11 @@ char password[32];
 */
 
 // dmx protocol interfaces for parsing packets (created in setup)
-LXWiFiArtNet* artNetInterface;
+//LXWiFiArtNet* artNetInterface;
 LXWiFiSACN*   sACNInterface;
 
 // EthernetUDP instances to let us send and receive UDP packets
-WiFiUDP aUDP;
+//WiFiUDP aUDP;
 WiFiUDP sUDP;
 
 // direction output from network/input to network
@@ -245,22 +245,22 @@ void setup() {
   sACNInterface = new LXWiFiSACN();
   sACNInterface->setUniverse(DMXWiFiConfig.sACNUniverse());
 
-  artNetInterface = new LXWiFiArtNet(WiFi.localIP(), WiFi.subnetMask());
-  artNetInterface->setUniverse(DMXWiFiConfig.artnetPortAddress());	//setUniverse for LXArtNet class sets complete Port-Address
-  artNetInterface->setArtAddressReceivedCallback(&artAddressReceived);
-  artNetInterface->setArtIpProgReceivedCallback(&artIpProgReceived);
-  char* nn = DMXWiFiConfig.nodeName();
-  if ( nn[0] != 0 ) {
-    strcpy(artNetInterface->longName(), nn);
-  }
-  artNetInterface->setStatus2Flag(ARTNET_STATUS2_SACN_CAPABLE, 1);
-  artNetInterface->setStatus2Flag(ARTNET_STATUS2_DHCP_CAPABLE, 1);
-  if ( dhcpStatus ) {
-    artNetInterface->setStatus2Flag(ARTNET_STATUS2_DHCP_USED, 1);
-  }
-  if ( bootStatus ) {
-    artNetInterface->setStatus1Flag(ARTNET_STATUS1_FACTORY_BOOT, 1);
-  }
+//  artNetInterface = new LXWiFiArtNet(WiFi.localIP(), WiFi.subnetMask());
+//  artNetInterface->setUniverse(DMXWiFiConfig.artnetPortAddress());	//setUniverse for LXArtNet class sets complete Port-Address
+//  artNetInterface->setArtAddressReceivedCallback(&artAddressReceived);
+//  artNetInterface->setArtIpProgReceivedCallback(&artIpProgReceived);
+//  char* nn = DMXWiFiConfig.nodeName();
+//  if ( nn[0] != 0 ) {
+//    strcpy(artNetInterface->longName(), nn);
+//  }
+//  artNetInterface->setStatus2Flag(ARTNET_STATUS2_SACN_CAPABLE, 1);
+//  artNetInterface->setStatus2Flag(ARTNET_STATUS2_DHCP_CAPABLE, 1);
+//  if ( dhcpStatus ) {
+//    artNetInterface->setStatus2Flag(ARTNET_STATUS2_DHCP_USED, 1);
+//  }
+//  if ( bootStatus ) {
+//    artNetInterface->setStatus1Flag(ARTNET_STATUS1_FACTORY_BOOT, 1);
+//  }
 #ifdef DEBUG
   Serial.print("interfaces created ");
 #endif
@@ -269,16 +269,16 @@ void setup() {
   if ( dmx_direction == OUTPUT_FROM_NETWORK_MODE ) {
     if ( DMXWiFiConfig.multicastMode() ) {
       if ( DMXWiFiConfig.APMode() ) {
-        sUDP.beginMulticast(DMXWiFiConfig.multicastAddress(), sACNInterface->dmxPort());  //WiFi.softAPIP(),
-      } else {
+//        sUDP.beginMulticast(DMXWiFiConfig.multicastAddress(), sACNInterface->dmxPort());  //WiFi.softAPIP(),
+//      } else {
         sUDP.beginMulticast(DMXWiFiConfig.multicastAddress(), sACNInterface->dmxPort());  //WiFi.localIP(),
       }
     } else {
       sUDP.begin(sACNInterface->dmxPort());
     }
 
-    aUDP.begin(artNetInterface->dmxPort());
-    artNetInterface->send_art_poll_reply(&aUDP);
+//    aUDP.begin(artNetInterface->dmxPort());
+//    artNetInterface->send_art_poll_reply(&aUDP);
 #ifdef DEBUG
     Serial.print("udp started listening,");
 #endif
@@ -331,11 +331,11 @@ void loop() {
 
   if ( dmx_direction == OUTPUT_FROM_NETWORK_MODE ) {
 
-    art_packet_result = artNetInterface->readDMXPacket(&aUDP);
-    if ( art_packet_result == RESULT_NONE ) {
-      checkConfigReceived(artNetInterface, &aUDP);
-    }
-    vTaskDelay(1);
+//    art_packet_result = artNetInterface->readDMXPacket(&aUDP);
+//    if ( art_packet_result == RESULT_NONE ) {
+//      checkConfigReceived(artNetInterface, &aUDP);
+//    }
+//    vTaskDelay(1);
 
     acn_packet_result = sACNInterface->readDMXPacket(&sUDP);
     if ( acn_packet_result == RESULT_NONE ) {
@@ -354,8 +354,8 @@ void loop() {
 
     if ( DMXWiFiConfig.sACNMode() ) {
       checkInput(sACNInterface, &sUDP, DMXWiFiConfig.multicastMode());
-    } else {
-      checkInput(artNetInterface, &aUDP, 0);
+//    } else {
+//      checkInput(artNetInterface, &aUDP, 0);
     }
 
   }

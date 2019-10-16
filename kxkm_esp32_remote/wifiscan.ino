@@ -69,7 +69,7 @@ void wifi_list() {
   wifi_base();
   //  if (n >= wifi_end) {
   wifi_list_next ();
-check_btn();
+//check_btn();
   while (menu == 1) {
     check_button();
 

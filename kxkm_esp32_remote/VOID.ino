@@ -3,12 +3,12 @@
 */
 
 
-
-void artAddressReceived() {
-  DMXWiFiConfig.setArtNetPortAddress( artNetInterface->universe() );
-  DMXWiFiConfig.setNodeName( artNetInterface->longName() );
-  DMXWiFiConfig.commitToPersistentStore();
-}
+//
+//void artAddressReceived() {
+//  DMXWiFiConfig.setArtNetPortAddress( artNetInterface->universe() );
+//  DMXWiFiConfig.setNodeName( artNetInterface->longName() );
+//  DMXWiFiConfig.commitToPersistentStore();
+//}
 
 /*
    artIpProg callback allows storing of config information
@@ -57,23 +57,23 @@ void gotDMXCallback(int slots) {
 
 void copyDMXToOutput(void) {
   uint8_t a, s;
-  uint16_t a_slots = artNetInterface->numberOfSlots();
+//  uint16_t a_slots = artNetInterface->numberOfSlots();
   uint16_t s_slots = sACNInterface->numberOfSlots();
   xSemaphoreTake( ESP32DMX.lxDataLock, portMAX_DELAY );
   for (int i = 1; i <= DMX_UNIVERSE_SIZE; i++) {
-    if ( i <= a_slots ) {
-      a = artNetInterface->getSlot(i);
-    } else {
-      a = 0;
-    }
+//    if ( i <= a_slots ) {
+//      a = artNetInterface->getSlot(i);
+//    } else {
+//      a = 0;
+//    }
     if ( i <= s_slots ) {
       s = sACNInterface->getSlot(i);
     } else {
       s = 0;
     }
     if ( a > s ) {
-      ESP32DMX.setSlot(i , a);
-    } else {
+//      ESP32DMX.setSlot(i , a);
+//    } else {
       ESP32DMX.setSlot(i , s);
     }
   }
