@@ -81,7 +81,7 @@ void DMXwifiConfig::initConfig(void) {
   strncpy(_wifi_config->ssid, "ReMoTe", 63);
   strncpy(_wifi_config->pwd, "", 63);
   _wifi_config->ap_address    = IPAddress(2, 0, 0, 10);    // ip address of access point
-  _wifi_config->ap_gateway    = IPAddress(2, 255, 0, 10);
+  _wifi_config->ap_gateway    = IPAddress(2, 0, 0, 10);
   _wifi_config->ap_subnet     = IPAddress(255, 0, 0, 0);    // match what is passed to dchp connection from computer
   _wifi_config->sta_address   = IPAddress(2, 0, 0, 8);    // station's static address for STATIC_MODE
   _wifi_config->sta_gateway   = IPAddress(2, 0, 0, 1);

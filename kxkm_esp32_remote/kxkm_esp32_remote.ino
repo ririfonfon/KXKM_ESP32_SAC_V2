@@ -339,15 +339,16 @@ void loop() {
 
     acn_packet_result = sACNInterface->readDMXPacket(&sUDP);
     if ( acn_packet_result == RESULT_NONE ) {
+      Serial.println ("acn_packet NoNE ");
       checkConfigReceived(sACNInterface, &sUDP);
     }
     vTaskDelay(1);
 
-    if ( (art_packet_result == RESULT_DMX_RECEIVED) || (acn_packet_result == RESULT_DMX_RECEIVED) ) {
+    if (acn_packet_result == RESULT_DMX_RECEIVED) {
       copyDMXToOutput();
-      Serial.println ("art_packet ");
+      Serial.println ("acn_packet RECEI");
     } else {
-      Serial.println ("art_packet else ");
+      Serial.println ("acn_packet else ");
     }
 
   } else {    //direction is input to network
