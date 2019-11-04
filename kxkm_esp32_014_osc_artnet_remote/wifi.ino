@@ -1,6 +1,6 @@
 /////////////////////////////////////////Wifi settings/////////////////////////////////////
 
-const char* KNOWN_SSID[] = {"ReMoTe", "kxkm24lulu", "kxkm-wifi", "gtriri_new", "SSID3"};
+const char* KNOWN_SSID[] = {"ReMoTe", "kxkm24lulu", "gkxkm-wifi", "gtriri_new", "SSID3"};
 const char* KNOWN_PASSWORD[] = {"", "", "KOMPLEXKAPHARNAUM", "B2az41opbn6397", "PassW3rd"};
 
 const int   KNOWN_SSID_COUNT = sizeof(KNOWN_SSID) / sizeof(KNOWN_SSID[0]); // number of known networks
@@ -8,8 +8,8 @@ const int   KNOWN_SSID_COUNT = sizeof(KNOWN_SSID) / sizeof(KNOWN_SSID[0]); // nu
 
 bool wifi_available = false;
 
-IPAddress ip(10, 0, 0, ESP_SK_PW + 100); // Static IP
-IPAddress gateway(10, 0, 0, 1);
+IPAddress ip(2, 0, 0, ESP_SK_PW + 100); // Static IP
+IPAddress gateway(2, 0, 0, 1);
 IPAddress subnet(255, 0, 0, 0);
 
 void ConnectWifi() {
