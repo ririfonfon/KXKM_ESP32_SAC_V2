@@ -74,8 +74,8 @@ void ConnectWifi() {
 #ifdef DEBUGwifi
     Serial.println(F("no Known network identified. Reset to try again"));
 #endif
-
-    while (true); // no need to go further, hang in there, will auto launch the Soft WDT reset
+    ConnectWifi();// cherche wifi
+    //    while (true); // no need to go further, hang in there, will auto launch the Soft WDT reset
   }
 
   // ----------------------------------------------------------------
@@ -163,9 +163,9 @@ void wifi_event(WiFiEvent_t event) {
       break;
   }
 #endif
+  wifi_available = false;
 
   if (event == SYSTEM_EVENT_STA_DISCONNECTED) {
-    wifi_available = false;
     retry += 1;
 
 #ifdef DEBUGwifi
@@ -176,9 +176,10 @@ void wifi_event(WiFiEvent_t event) {
 #endif
 
     if (retry < maxRetry) {
-      WiFi.reconnect();
+      ConnectWifi();// cherche wifi
+      //      WiFi.reconnect();
     } else if (retry >= maxRetry) {
-      WiFi.mode(WIFI_OFF);
+      //      WiFi.mode(WIFI_OFF);
       retry = 0;
 #ifdef DEBUGwifi
       Serial.print(" max ");
