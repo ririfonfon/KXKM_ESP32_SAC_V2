@@ -1,6 +1,6 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
 #define ESP_SK_PW 1
-#define VERSION 28
+#define VERSION 30
 
 #define UNI 0                     // DMX Universe to listen for
 
