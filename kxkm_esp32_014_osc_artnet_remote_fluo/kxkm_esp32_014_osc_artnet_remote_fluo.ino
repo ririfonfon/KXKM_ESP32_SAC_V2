@@ -1,6 +1,6 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
 #define ESP_SK_PW_FLUO 12
-#define VERSION 24
+#define VERSION 28
 
 #define UNI 0                     // DMX Universe to listen for
 
@@ -15,7 +15,7 @@
 /////////////////////////////////////////Adresse/////////////////////////////////////
 #define adr (1+(ESP_SK_PW_FLUO-1)*18)
 //#define adr 1
-#define NUM_LEDS_PER_STRIP 120
+#define NUM_LEDS_PER_STRIP 73
 int N_L_P_S = NUM_LEDS_PER_STRIP;
 
 /////////////////////////////////////////Debug///////////////////////////////////////
@@ -63,6 +63,9 @@ strand_t * strands [] = { &STRANDS[0], &STRANDS[1]};
 bool randArray[numberOfLed];
 
 /////////////////////////////////// variables////////////////////////////////////
+
+int wi = 0;
+
 //// Setup PWM State(s)
 int ledChannelOne = 0;
 int ledChannelTwo = 0;
@@ -229,7 +232,18 @@ void loop() {
   }// if wifi
 
   if ((millis() - lastRefresh) > REFRESH) {
-    if (!wifi_isok())  ledBlack();//passe led noir
+    if (!wifi_isok()) {
+      ledBlack();//passe led noir
+      wi += 1;
+#ifdef DEBUGwifi
+      Serial.print(" !wifi_isok()   wi = ");
+      Serial.println(wi);
+#endif
+      if (wi >= 10) {
+        ConnectWifi();// cherche wifi
+        wi = 0;
+      }
+    }
     lastRefresh = millis();
   }
   // MILLIS overflow protection
