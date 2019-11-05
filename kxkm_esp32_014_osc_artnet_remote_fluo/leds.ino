@@ -16,6 +16,7 @@ void ledBlack() {
     pi_n_1_r[i] = 0;
     pi_n_1_g[i] = 0;
     pi_n_1_b[i] = 0;
+    strands[0]->pixels[i] = pixelFromRGBW(0, 0, 0, 0);
     strands[1]->pixels[i] = pixelFromRGBW(0, 0, 0, 0);
   }//for i
   ledChannelOne = 0;
