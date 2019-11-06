@@ -7,6 +7,8 @@ void ledSetup() {
   ledcSetup(2, freq, resol);
   ledcAttachPin(17, 1);
   ledcAttachPin(16, 2);
+  pinMode(4, OUTPUT);
+  digitalWrite(4, HIGH);
 }
 
 //// Setup PWM for LED(s)
