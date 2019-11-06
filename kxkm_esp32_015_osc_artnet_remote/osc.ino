@@ -39,7 +39,7 @@ void oscC_start() {
     "oscC_task",
     10000,
     NULL,
-    1,
+    0,
     NULL,
     0);
 }
