@@ -1,6 +1,7 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
-#define ESP_SK_PW 1
-#define VERSION 30
+#define ESP_SK_PW 17
+
+#define VERSION 31
 
 #define UNI 0                     // DMX Universe to listen for
 
@@ -217,7 +218,7 @@ void setup() {
   xTaskCreatePinnedToCore(effTask, "effTask", 4096, NULL, 1, NULL, 0);    // core 0 = wifi
 
   ///////////////////////////////////////////////// osc //////////////////////////////////////
-  oscC_start();
+//  oscC_start();
 
 }//setup
 
