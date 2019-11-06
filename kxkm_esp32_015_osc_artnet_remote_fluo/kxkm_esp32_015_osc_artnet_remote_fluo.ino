@@ -14,7 +14,8 @@
 /////////////////////////////////////////Adresse/////////////////////////////////////
 #define adr (1+(ESP_SK_PW_FLUO-1)*18)
 //#define adr 1
-#define NUM_LEDS_PER_STRIP 73
+#define NUM_LEDS_PER_STRIP_MAX 73
+int NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_MAX;
 int N_L_P_S = NUM_LEDS_PER_STRIP;
 
 /////////////////////////////////////////Debug///////////////////////////////////////
@@ -55,8 +56,8 @@ byte myID;
 #define NUM_STRIPS 2
 //int PINS[NUM_STRIPS] = {22, 21};// V1
 int PINS[NUM_STRIPS] = {23, 22};// V2
-const int numberOfChannels = NUM_STRIPS * NUM_LEDS_PER_STRIP * 4;
-const int numberOfLed =  NUM_LEDS_PER_STRIP ;
+const int numberOfChannels = NUM_STRIPS * NUM_LEDS_PER_STRIP_MAX * 4;
+const int numberOfLed =  NUM_LEDS_PER_STRIP_MAX ;
 strand_t STRANDS[NUM_STRIPS];
 strand_t * strands [] = { &STRANDS[0], &STRANDS[1]};
 bool randArray[numberOfLed];
@@ -216,7 +217,7 @@ void setup() {
   xTaskCreatePinnedToCore(effTask, "effTask", 4096, NULL, 1, NULL, 0);    // core 0 = wifi
 
   ///////////////////////////////////////////////// osc //////////////////////////////////////
-  oscC_start();
+//  oscC_start();
 
 }//setup
 
