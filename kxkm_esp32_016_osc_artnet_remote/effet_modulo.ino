@@ -51,14 +51,14 @@ void eff_modulo() {
       return;
     }
     int n_led_to_show = (min(NUM_LEDS_PER_STRIP - 8, S_seuil));
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0);
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0);
 
-      strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255));
+      strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255));
     }//for i
   }//modulo 3
 
@@ -104,14 +104,14 @@ void eff_modulo() {
       return;
     }
     int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0 );
 
-      strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255));
+      strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255));
     }//for i
   }//modulo 5
 
@@ -122,14 +122,14 @@ void eff_modulo() {
     }
     int S_seuil_B;
     int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0 );
 
-      strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255));
+      strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255));
     }//for i
     old_S_seuil = S_seuil - 1;
   }//modulo 6
@@ -197,18 +197,18 @@ void eff_modulo() {
       return;
     }
     int n_led_to_show = (min(NUM_LEDS_PER_STRIP - 8, S_seuil));
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0);
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0);
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, NUM_LEDS_PER_STRIP, N_L_P_S, 0);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, NUM_LEDS_PER_STRIP, N_L_P_S, 0);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
       }
     }//for i
   }//modulo 13
@@ -260,18 +260,18 @@ void eff_modulo() {
       return;
     }
     int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0 );
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, NUM_LEDS_PER_STRIP, N_L_P_S, 0);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, NUM_LEDS_PER_STRIP, N_L_P_S, 0);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
       }
     }//for i
   }//modulo 15
@@ -283,18 +283,18 @@ void eff_modulo() {
     }
     int S_seuil_B;
     int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0 );
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, NUM_LEDS_PER_STRIP, N_L_P_S, 0);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, NUM_LEDS_PER_STRIP, N_L_P_S, 0);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
       }
     }//for i
     old_S_seuil = S_seuil - 1;
@@ -372,21 +372,21 @@ void eff_modulo() {
       return;
     }
     int n_led_to_show = (min(NUM_LEDS_PER_STRIP - 8, S_seuil));
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0);
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0);
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 2)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 2)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
       }
     }//for i
   }//modulo 23
@@ -441,21 +441,21 @@ void eff_modulo() {
       return;
     }
     int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0 );
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 2)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 2)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
       }
     }//for i
   }//modulo 25
@@ -467,21 +467,21 @@ void eff_modulo() {
     }
     int S_seuil_B;
     int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0 );
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 2)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 2)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
       }
     }//for i
     old_S_seuil = S_seuil - 1;
@@ -568,24 +568,24 @@ void eff_modulo() {
       return;
     }
     int n_led_to_show = (min(NUM_LEDS_PER_STRIP - 8, S_seuil));
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0);
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0);
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 2)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 4 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 3)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 2)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 4 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 3)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
       }
     }//for i
   }//modulo 33
@@ -643,24 +643,24 @@ void eff_modulo() {
       return;
     }
     int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0 );
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 2)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 4 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 3)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 2)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 4 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 3)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
       }
     }//for i
   }//modulo 35
@@ -672,24 +672,24 @@ void eff_modulo() {
     }
     int S_seuil_B;
     int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0 );
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 2)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 4 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 3)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 2)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 4 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 3)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
       }
     }//for i
     old_S_seuil = S_seuil - 1;
@@ -758,17 +758,17 @@ void eff_modulo() {
       return;
     }
     int n_led_to_show = (min(NUM_LEDS_PER_STRIP - 8, S_seuil));
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0);
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, NUM_LEDS_PER_STRIP, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0);
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, NUM_LEDS_PER_STRIP, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
       }
     }//for i
   }//modulo 43
@@ -820,18 +820,18 @@ void eff_modulo() {
       return;
     }
     int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0 );
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, NUM_LEDS_PER_STRIP, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, NUM_LEDS_PER_STRIP, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
       }
     }//for i
   }//modulo 45
@@ -843,18 +843,18 @@ void eff_modulo() {
     }
     int S_seuil_B;
     int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0 );
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, NUM_LEDS_PER_STRIP, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, NUM_LEDS_PER_STRIP, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
       }
     }//for i
     old_S_seuil = S_seuil - 1;
@@ -932,21 +932,21 @@ void eff_modulo() {
       return;
     }
     int n_led_to_show = (min(NUM_LEDS_PER_STRIP - 8, S_seuil));
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0);
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0);
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 2)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 2)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
       }
     }//for i
   }//modulo 53
@@ -1001,21 +1001,21 @@ void eff_modulo() {
       return;
     }
     int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0 );
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 2)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 2)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
       }
     }//for i
   }//modulo 55
@@ -1027,21 +1027,21 @@ void eff_modulo() {
     }
     int S_seuil_B;
     int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0 );
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 2)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 2)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
       }
     }//for i
     old_S_seuil = S_seuil - 1;
@@ -1128,24 +1128,24 @@ void eff_modulo() {
       return;
     }
     int n_led_to_show = (min(NUM_LEDS_PER_STRIP - 8, S_seuil));
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0);
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0);
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 2)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 4 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 3)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 2)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 4 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 3)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
       }
     }//for i
   }//modulo 63
@@ -1203,24 +1203,24 @@ void eff_modulo() {
       return;
     }
     int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0 );
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 2)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 4 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 3)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 2)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 4 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 3)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
       }
     }//for i
   }//modulo 65
@@ -1232,24 +1232,24 @@ void eff_modulo() {
     }
     int S_seuil_B;
     int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
-    int n_strip = 0;
+    
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , NUM_LEDS_PER_STRIP );
-        n_strip = a / NUM_LEDS_PER_STRIP;
-      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
+        
+      } while (strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].r != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].g != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].b != 0 || strands[0]->pixels[a - (NUM_LEDS_PER_STRIP * 0)].w != 0 );
 
-      if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * n_strip)] * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 2)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
-      } else if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S * 4 & a - (NUM_LEDS_PER_STRIP * n_strip >= N_L_P_S * 3)) {
-        int di = map(a - (NUM_LEDS_PER_STRIP * n_strip), (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
-        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+      if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S) {
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_g[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_b[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255), (pi_n_1_w[a - (NUM_LEDS_PER_STRIP * 0)] * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 2 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 3 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 2)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+      } else if (a - (NUM_LEDS_PER_STRIP * 0) <= N_L_P_S * 4 & a - (NUM_LEDS_PER_STRIP * 0 >= N_L_P_S * 3)) {
+        int di = map(a - (NUM_LEDS_PER_STRIP * 0), (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
+        strands[1]->pixels[a - (NUM_LEDS_PER_STRIP * 0)] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
       }
     }//for i
     old_S_seuil = S_seuil - 1;
