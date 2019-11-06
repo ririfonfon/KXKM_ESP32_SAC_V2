@@ -50,11 +50,11 @@ void eff_modulo() {
     } else {
       return;
     }
-    int n_led_to_show = (min(numberOfLed - 8, S_seuil));
+    int n_led_to_show = (min(NUM_LEDS_PER_STRIP - 8, S_seuil));
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0);
 
@@ -103,11 +103,11 @@ void eff_modulo() {
     } else {
       return;
     }
-    int n_led_to_show = min(numberOfLed - 8, S_seuil);
+    int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
 
@@ -121,11 +121,11 @@ void eff_modulo() {
       old_S_seuil = S_seuil;
     }
     int S_seuil_B;
-    int n_led_to_show = min(numberOfLed - 8, S_seuil);
+    int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
 
@@ -196,11 +196,11 @@ void eff_modulo() {
     } else {
       return;
     }
-    int n_led_to_show = (min(numberOfLed - 8, S_seuil));
+    int n_led_to_show = (min(NUM_LEDS_PER_STRIP - 8, S_seuil));
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0);
 
@@ -259,11 +259,11 @@ void eff_modulo() {
     } else {
       return;
     }
-    int n_led_to_show = min(numberOfLed - 8, S_seuil);
+    int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
 
@@ -282,11 +282,11 @@ void eff_modulo() {
       old_S_seuil = S_seuil;
     }
     int S_seuil_B;
-    int n_led_to_show = min(numberOfLed - 8, S_seuil);
+    int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
 
@@ -371,11 +371,11 @@ void eff_modulo() {
     } else {
       return;
     }
-    int n_led_to_show = (min(numberOfLed - 8, S_seuil));
+    int n_led_to_show = (min(NUM_LEDS_PER_STRIP - 8, S_seuil));
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0);
 
@@ -440,11 +440,11 @@ void eff_modulo() {
     } else {
       return;
     }
-    int n_led_to_show = min(numberOfLed - 8, S_seuil);
+    int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
 
@@ -466,11 +466,11 @@ void eff_modulo() {
       old_S_seuil = S_seuil;
     }
     int S_seuil_B;
-    int n_led_to_show = min(numberOfLed - 8, S_seuil);
+    int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
 
@@ -567,11 +567,11 @@ void eff_modulo() {
     } else {
       return;
     }
-    int n_led_to_show = (min(numberOfLed - 8, S_seuil));
+    int n_led_to_show = (min(NUM_LEDS_PER_STRIP - 8, S_seuil));
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0);
 
@@ -642,11 +642,11 @@ void eff_modulo() {
     } else {
       return;
     }
-    int n_led_to_show = min(numberOfLed - 8, S_seuil);
+    int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
 
@@ -671,11 +671,11 @@ void eff_modulo() {
       old_S_seuil = S_seuil;
     }
     int S_seuil_B;
-    int n_led_to_show = min(numberOfLed - 8, S_seuil);
+    int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
 
@@ -757,11 +757,11 @@ void eff_modulo() {
     } else {
       return;
     }
-    int n_led_to_show = (min(numberOfLed - 8, S_seuil));
+    int n_led_to_show = (min(NUM_LEDS_PER_STRIP - 8, S_seuil));
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0);
       if (a - (NUM_LEDS_PER_STRIP * n_strip) <= N_L_P_S) {
@@ -819,11 +819,11 @@ void eff_modulo() {
     } else {
       return;
     }
-    int n_led_to_show = min(numberOfLed - 8, S_seuil);
+    int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
 
@@ -842,11 +842,11 @@ void eff_modulo() {
       old_S_seuil = S_seuil;
     }
     int S_seuil_B;
-    int n_led_to_show = min(numberOfLed - 8, S_seuil);
+    int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
 
@@ -931,11 +931,11 @@ void eff_modulo() {
     } else {
       return;
     }
-    int n_led_to_show = (min(numberOfLed - 8, S_seuil));
+    int n_led_to_show = (min(NUM_LEDS_PER_STRIP - 8, S_seuil));
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0);
 
@@ -1000,11 +1000,11 @@ void eff_modulo() {
     } else {
       return;
     }
-    int n_led_to_show = min(numberOfLed - 8, S_seuil);
+    int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
 
@@ -1026,11 +1026,11 @@ void eff_modulo() {
       old_S_seuil = S_seuil;
     }
     int S_seuil_B;
-    int n_led_to_show = min(numberOfLed - 8, S_seuil);
+    int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
 
@@ -1127,11 +1127,11 @@ void eff_modulo() {
     } else {
       return;
     }
-    int n_led_to_show = (min(numberOfLed - 8, S_seuil));
+    int n_led_to_show = (min(NUM_LEDS_PER_STRIP - 8, S_seuil));
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0);
 
@@ -1202,11 +1202,11 @@ void eff_modulo() {
     } else {
       return;
     }
-    int n_led_to_show = min(numberOfLed - 8, S_seuil);
+    int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
 
@@ -1231,11 +1231,11 @@ void eff_modulo() {
       old_S_seuil = S_seuil;
     }
     int S_seuil_B;
-    int n_led_to_show = min(numberOfLed - 8, S_seuil);
+    int n_led_to_show = min(NUM_LEDS_PER_STRIP - 8, S_seuil);
     int n_strip = 0;
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
-        a = random( 0 , numberOfLed );
+        a = random( 0 , NUM_LEDS_PER_STRIP );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].w != 0 );
 

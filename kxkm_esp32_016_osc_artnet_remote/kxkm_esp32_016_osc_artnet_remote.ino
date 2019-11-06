@@ -1,7 +1,7 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
 #define ESP_SK_PW 17
 
-#define VERSION 31
+#define VERSION 32
 
 #define UNI 0                     // DMX Universe to listen for
 
@@ -14,9 +14,10 @@
 #endif
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
-#define adr (1+(ESP_SK_PW-1)*18)
+#define adr (1+(ESP_SK_PW-1)*19)
 //#define adr 1
-#define NUM_LEDS_PER_STRIP 120
+#define NUM_LEDS_PER_STRIP_MAX 120
+int NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_MAX;
 int N_L_P_S = NUM_LEDS_PER_STRIP;
 
 /////////////////////////////////////////Debug///////////////////////////////////////
@@ -57,11 +58,10 @@ byte myID;
 #define NUM_STRIPS 2
 //int PINS[NUM_STRIPS] = {22, 21};// V1
 int PINS[NUM_STRIPS] = {23, 22};// V2
-const int numberOfChannels = NUM_STRIPS * NUM_LEDS_PER_STRIP * 4;
-const int numberOfLed =  NUM_LEDS_PER_STRIP ;
+const int numberOfChannels = NUM_STRIPS * NUM_LEDS_PER_STRIP_MAX * 4;
+//const int NUM_LEDS_PER_STRIP =  NUM_LEDS_PER_STRIP_MAX ;
 strand_t STRANDS[NUM_STRIPS];
 strand_t * strands [] = { &STRANDS[0], &STRANDS[1]};
-bool randArray[numberOfLed];
 
 /////////////////////////////////// variables////////////////////////////////////
 
@@ -73,20 +73,20 @@ int ledChannelTwo = 0;
 
 ///////////////////////////////////dmx variables////////////////////////////////////
 
-float pi_n_1_r[NUM_LEDS_PER_STRIP];
-float pi_n_1_g[NUM_LEDS_PER_STRIP];
-float pi_n_1_b[NUM_LEDS_PER_STRIP];
-float pi_n_1_w[NUM_LEDS_PER_STRIP];
+float pi_n_1_r[NUM_LEDS_PER_STRIP_MAX];
+float pi_n_1_g[NUM_LEDS_PER_STRIP_MAX];
+float pi_n_1_b[NUM_LEDS_PER_STRIP_MAX];
+float pi_n_1_w[NUM_LEDS_PER_STRIP_MAX];
 
-float pi_1_r[NUM_LEDS_PER_STRIP];
-float pi_1_g[NUM_LEDS_PER_STRIP];
-float pi_1_b[NUM_LEDS_PER_STRIP];
-float pi_1_w[NUM_LEDS_PER_STRIP];
+float pi_1_r[NUM_LEDS_PER_STRIP_MAX];
+float pi_1_g[NUM_LEDS_PER_STRIP_MAX];
+float pi_1_b[NUM_LEDS_PER_STRIP_MAX];
+float pi_1_w[NUM_LEDS_PER_STRIP_MAX];
 
-float pi_1_sr[NUM_LEDS_PER_STRIP];
-float pi_1_sg[NUM_LEDS_PER_STRIP];
-float pi_1_sb[NUM_LEDS_PER_STRIP];
-float pi_1_sw[NUM_LEDS_PER_STRIP];
+float pi_1_sr[NUM_LEDS_PER_STRIP_MAX];
+float pi_1_sg[NUM_LEDS_PER_STRIP_MAX];
+float pi_1_sb[NUM_LEDS_PER_STRIP_MAX];
+float pi_1_sw[NUM_LEDS_PER_STRIP_MAX];
 
 int color_mode;
 int mirror;

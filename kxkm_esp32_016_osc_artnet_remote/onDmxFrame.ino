@@ -86,7 +86,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     pix_pos = (((pix_start + N_L_P_S + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
 
     //  } else if (pix_mod >= 21 && pix_mod <= 30 || pix_mod >= 61 && pix_mod <= 90 || pix_mod >= 121 && pix_mod <= 150) {
-    //    pix_pos = (((pix_start + numberOfLed + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
+    //    pix_pos = (((pix_start + NUM_LEDS_PER_STRIP + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
     //  }
 
     modulo = data[adr + 7];
@@ -103,7 +103,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     ledChannelOne = (data[adr + 15] * data[adr + 15]) / 255;
     ledChannelTwo = (data[adr + 16] * data[adr + 16]) / 255;
 
-
+    NUM_LEDS_PER_STRIP = (NUM_LEDS_PER_STRIP_MAX * data[adr + 17]) / 255;
 
     // modulo mode && mirror
     if (mirror >= 0 && mirror <= 10) {// no mirror
