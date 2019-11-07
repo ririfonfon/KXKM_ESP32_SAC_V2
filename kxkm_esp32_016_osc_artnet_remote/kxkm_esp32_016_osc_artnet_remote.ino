@@ -97,6 +97,7 @@ int color_mode;
 int mirror;
 int zoom;
 int offset;
+int di;
 
 unsigned long now;
 int effet_etat = 0;
