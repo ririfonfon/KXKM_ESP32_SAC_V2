@@ -103,6 +103,8 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     zoom = (NUM_LEDS_PER_STRIP_MAX * data[adr + 15]) / 255;
     if (zoom <= 0) zoom = 1;
     NUM_LEDS_PER_STRIP = zoom;
+    offset = (NUM_LEDS_PER_STRIP_MAX - zoom) / 2;
+
 
     ledChannelOne = (data[adr + 16] * data[adr + 16]) / 255;
     ledChannelTwo = (data[adr + 17] * data[adr + 17]) / 255;
