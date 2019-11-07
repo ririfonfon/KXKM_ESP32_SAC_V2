@@ -73,6 +73,11 @@ int ledChannelTwo = 0;
 
 ///////////////////////////////////dmx variables////////////////////////////////////
 
+float zo_pi_n_1_r[NUM_LEDS_PER_STRIP_MAX];
+float zo_pi_n_1_g[NUM_LEDS_PER_STRIP_MAX];
+float zo_pi_n_1_b[NUM_LEDS_PER_STRIP_MAX];
+float zo_pi_n_1_w[NUM_LEDS_PER_STRIP_MAX];
+
 float pi_n_1_r[NUM_LEDS_PER_STRIP_MAX];
 float pi_n_1_g[NUM_LEDS_PER_STRIP_MAX];
 float pi_n_1_b[NUM_LEDS_PER_STRIP_MAX];
@@ -91,6 +96,7 @@ float pi_1_sw[NUM_LEDS_PER_STRIP_MAX];
 int color_mode;
 int mirror;
 int zoom;
+int offset;
 
 unsigned long now;
 int effet_etat = 0;
@@ -219,7 +225,7 @@ void setup() {
   xTaskCreatePinnedToCore(effTask, "effTask", 4096, NULL, 1, NULL, 0);    // core 0 = wifi
 
   ///////////////////////////////////////////////// osc //////////////////////////////////////
-//  oscC_start();
+  //  oscC_start();
 
 }//setup
 
