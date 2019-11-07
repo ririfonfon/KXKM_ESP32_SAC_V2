@@ -9,33 +9,18 @@ void eff_modulo() {
   if ( type_modulo == 30 ) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
-        zo_pi_n_1_r[i] = pi_n_1_r[i];
-        zo_pi_n_1_g[i] = pi_n_1_g[i];
-        zo_pi_n_1_b[i] = pi_n_1_b[i];
-        zo_pi_n_1_w[i] = pi_n_1_w[i];
-        //        strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[i] / 255) * master), ((pi_n_1_g[i] / 255) * master), ((pi_n_1_b[i] / 255) * master), ((pi_n_1_w[i] / 255) * master));
+        di = i;
       } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-        int di = map(i, N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
-        zo_pi_n_1_r[i] = pi_n_1_r[di];
-        zo_pi_n_1_g[i] = pi_n_1_g[di];
-        zo_pi_n_1_b[i] = pi_n_1_b[di];
-        zo_pi_n_1_w[i] = pi_n_1_w[di];
-        //        strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * master), ((pi_n_1_g[di] / 255) * master), ((pi_n_1_b[di] / 255) * master), ((pi_n_1_w[di] / 255) * master));
+        di = map(i, N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
       } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-        int di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        zo_pi_n_1_r[i] = pi_n_1_r[di];
-        zo_pi_n_1_g[i] = pi_n_1_g[di];
-        zo_pi_n_1_b[i] = pi_n_1_b[di];
-        zo_pi_n_1_w[i] = pi_n_1_w[di];
-        //        strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * master), ((pi_n_1_g[di] / 255) * master), ((pi_n_1_b[di] / 255) * master), ((pi_n_1_w[di] / 255) * master));
+        di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
       } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-        int di = map(i, (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
-        zo_pi_n_1_r[i] = pi_n_1_r[di];
-        zo_pi_n_1_g[i] = pi_n_1_g[di];
-        zo_pi_n_1_b[i] = pi_n_1_b[di];
-        zo_pi_n_1_w[i] = pi_n_1_w[di];
-        //        strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * master), ((pi_n_1_g[di] / 255) * master), ((pi_n_1_b[di] / 255) * master), ((pi_n_1_w[di] / 255) * master));
+        di = map(i, (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
       }
+      zo_pi_n_1_r[i] = pi_n_1_r[di];
+      zo_pi_n_1_g[i] = pi_n_1_g[di];
+      zo_pi_n_1_b[i] = pi_n_1_b[di];
+      zo_pi_n_1_w[i] = pi_n_1_w[di];
     }//for i
   }//modulo 30
 
@@ -51,33 +36,18 @@ void eff_modulo() {
     }
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
-        zo_pi_n_1_r[i] = pi_n_1_r[i] * str;
-        zo_pi_n_1_g[i] = pi_n_1_g[i] * str;
-        zo_pi_n_1_b[i] = pi_n_1_b[i] * str;
-        zo_pi_n_1_w[i] = pi_n_1_w[i] * str;
-        //        strands[1]->pixels[i] = pixelFromRGBW((pi_n_1_r[i] * str * master / 255), (pi_n_1_g[i] * str * master / 255), (pi_n_1_b[i] * str * master / 255), (pi_n_1_w[i] * str * master / 255));
+        di = i;
       } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-        int di = map(i, N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * str;
-        //        strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * str * master), ((pi_n_1_g[di] / 255) * str * master), ((pi_n_1_b[di] / 255) * str * master), ((pi_n_1_w[di] / 255) * str * master));
+        di = map(i, N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
       } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-        int di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * str;
-        //  strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * str * master), ((pi_n_1_g[di] / 255) * str * master), ((pi_n_1_b[di] / 255) * str * master), ((pi_n_1_w[di] / 255) * str * master));
+        di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
       } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-        int di = map(i, (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * str;
-        //  strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * str * master), ((pi_n_1_g[di] / 255) * str * master), ((pi_n_1_b[di] / 255) * str * master), ((pi_n_1_w[di] / 255) * str * master));
+        di = map(i, (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
       }
+      zo_pi_n_1_r[i] = pi_n_1_r[di] * str;
+      zo_pi_n_1_g[i] = pi_n_1_g[di] * str;
+      zo_pi_n_1_b[i] = pi_n_1_b[di] * str;
+      zo_pi_n_1_w[i] = pi_n_1_w[di] * str;
     }//for i
   }//modulo 31
 
@@ -89,33 +59,18 @@ void eff_modulo() {
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
-        zo_pi_n_1_r[i] = pi_n_1_r[i] *  module;
-        zo_pi_n_1_g[i] = pi_n_1_g[i] *  module;
-        zo_pi_n_1_b[i] = pi_n_1_b[i] *  module;
-        zo_pi_n_1_w[i] = pi_n_1_w[i] *  module;
-        //  strands[1]->pixels[i] = pixelFromRGBW((pi_n_1_r[i] * module * master / 255), (pi_n_1_g[i] * module * master / 255), (pi_n_1_b[i] * module * master / 255), (pi_n_1_w[i] * module * master / 255));
+        di = i;
       } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-        int di = map(i, N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * module;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * module;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * module;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * module;
-        // strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * module * master), ((pi_n_1_g[di] / 255) * module * master), ((pi_n_1_b[di] / 255) * module * master), ((pi_n_1_w[di] / 255) * module * master));
+        di = map(i, N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
       } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-        int di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * module;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * module;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * module;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * module;
-        // strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * module * master), ((pi_n_1_g[di] / 255) * module * master), ((pi_n_1_b[di] / 255) * module * master), ((pi_n_1_w[di] / 255) * module * master));
+        di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
       } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-        int di = map(i, (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * module;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * module;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * module;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * module;
-        //strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * module * master), ((pi_n_1_g[di] / 255) * module * master), ((pi_n_1_b[di] / 255) * module * master), ((pi_n_1_w[di] / 255) * module * master));
+        di = map(i, (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
       }
+      zo_pi_n_1_r[i] = pi_n_1_r[di] * module;
+      zo_pi_n_1_g[i] = pi_n_1_g[di] * module;
+      zo_pi_n_1_b[i] = pi_n_1_b[di] * module;
+      zo_pi_n_1_w[i] = pi_n_1_w[di] * module;
     }//for i
   }// modulo 32
 
@@ -139,33 +94,18 @@ void eff_modulo() {
       } while (zo_pi_n_1_r[a] != 0 || zo_pi_n_1_g[a] != 0 || zo_pi_n_1_b[a] != 0 || zo_pi_n_1_w[a] != 0);
 
       if (a <= N_L_P_S) {
-        zo_pi_n_1_r[a] = pi_n_1_r[a] * str;
-        zo_pi_n_1_g[a] = pi_n_1_g[a] * str;
-        zo_pi_n_1_b[a] = pi_n_1_b[a] * str;
-        zo_pi_n_1_w[a] = pi_n_1_w[a] * str;
-        //  strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[a] * str * master / 255), (pi_n_1_g[a] * str * master / 255), (pi_n_1_b[a] * str * master / 255), (pi_n_1_w[a] * str * master / 255));
+        di = a;
       } else if (a <= N_L_P_S * 2 && a  >= N_L_P_S) {
-        int di = map(a, N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
-        zo_pi_n_1_r[a] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[a] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[a] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[a] = pi_n_1_w[di] * str;
-        // strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(a, N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
       } else if (a <= N_L_P_S * 3 && a  >= N_L_P_S * 2) {
-        int di = map(a, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        zo_pi_n_1_r[a] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[a] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[a] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[a] = pi_n_1_w[di] * str;
-        //  strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(a, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
       } else if (a <= N_L_P_S * 4 && a >= N_L_P_S * 3) {
-        int di = map(a, (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
-        zo_pi_n_1_r[a] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[a] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[a] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[a] = pi_n_1_w[di] * str;
-        // strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(a, (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
       }
+      zo_pi_n_1_r[a] = pi_n_1_r[di] * str;
+      zo_pi_n_1_g[a] = pi_n_1_g[di] * str;
+      zo_pi_n_1_b[a] = pi_n_1_b[di] * str;
+      zo_pi_n_1_w[a] = pi_n_1_w[di] * str;
     }//for i
   }//modulo 33
 
@@ -188,33 +128,18 @@ void eff_modulo() {
     }
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
-        zo_pi_n_1_r[i] = pi_n_1_r[i] * str;
-        zo_pi_n_1_g[i] = pi_n_1_g[i] * str;
-        zo_pi_n_1_b[i] = pi_n_1_b[i] * str;
-        zo_pi_n_1_w[i] = pi_n_1_w[i] * str;
-        // strands[1]->pixels[i] = pixelFromRGBW((pi_n_1_r[i] * str * master / 255), (pi_n_1_g[i] * str * master / 255), (pi_n_1_b[i] * str * master / 255), (pi_n_1_w[i] * str * master / 255));
+        di = i;
       } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-        int di = map(i, N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * str;
-        //strands[1]->pixels[i] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(i, N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
       } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-        int di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * str;
-        // strands[1]->pixels[i] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
       } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-        int di = map(i, (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * str;
-        //strands[1]->pixels[i] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(i, (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
       }
+      zo_pi_n_1_r[i] = pi_n_1_r[di] * str;
+      zo_pi_n_1_g[i] = pi_n_1_g[di] * str;
+      zo_pi_n_1_b[i] = pi_n_1_b[di] * str;
+      zo_pi_n_1_w[i] = pi_n_1_w[di] * str;
     }//for i
   }//modulo 34
 
@@ -246,33 +171,18 @@ void eff_modulo() {
       } while (zo_pi_n_1_r[a] != 0 || zo_pi_n_1_g[a] != 0 || zo_pi_n_1_b[a] != 0 || zo_pi_n_1_w[a] != 0 );
 
       if (a <= N_L_P_S) {
-        zo_pi_n_1_r[a] = pi_n_1_r[a] * str;
-        zo_pi_n_1_g[a] = pi_n_1_g[a] * str;
-        zo_pi_n_1_b[a] = pi_n_1_b[a] * str;
-        zo_pi_n_1_w[a] = pi_n_1_w[a] * str;
-        //strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[a] * str * master / 255), (pi_n_1_g[a] * str * master / 255), (pi_n_1_b[a] * str * master / 255), (pi_n_1_w[a] * str * master / 255));
+        di = a;
       } else if (a <= N_L_P_S * 2 && a >= N_L_P_S) {
-        int di = map(a, N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
-        zo_pi_n_1_r[a] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[a] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[a] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[a] = pi_n_1_w[di] * str;
-        //strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(a, N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
       } else if (a <= N_L_P_S * 3 && a >= N_L_P_S * 2) {
-        int di = map(a, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        zo_pi_n_1_r[a] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[a] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[a] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[a] = pi_n_1_w[di] * str;
-        //strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(a, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
       } else if (a <= N_L_P_S * 4 && a >= N_L_P_S * 3) {
-        int di = map(a, (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
-        zo_pi_n_1_r[a] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[a] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[a] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[a] = pi_n_1_w[di] * str;
-        // strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(a, (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
       }
+      zo_pi_n_1_r[a] = pi_n_1_r[di] * str;
+      zo_pi_n_1_g[a] = pi_n_1_g[di] * str;
+      zo_pi_n_1_b[a] = pi_n_1_b[di] * str;
+      zo_pi_n_1_w[a] = pi_n_1_w[di] * str;
     }//for i
   }//modulo 35
 
@@ -291,34 +201,18 @@ void eff_modulo() {
       } while (zo_pi_n_1_r[a] != 0 || zo_pi_n_1_g[a] != 0 || zo_pi_n_1_b[a] != 0 || zo_pi_n_1_w[a] != 0 );
 
       if (a <= N_L_P_S) {
-        zo_pi_n_1_r[a] = pi_n_1_r[a] ;
-        zo_pi_n_1_g[a] = pi_n_1_g[a] ;
-        zo_pi_n_1_b[a] = pi_n_1_b[a] ;
-        zo_pi_n_1_w[a] = pi_n_1_w[a] ;
-
-        //strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[a] * master / 255), (pi_n_1_g[a] * master / 255), (pi_n_1_b[a] * master / 255), (pi_n_1_w[a] * master / 255));
+        di = a;
       } else if (a <= N_L_P_S * 2 && a >= N_L_P_S) {
-        int di = map(a, N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
-        zo_pi_n_1_r[a] = pi_n_1_r[di] ;
-        zo_pi_n_1_g[a] = pi_n_1_g[di] ;
-        zo_pi_n_1_b[a] = pi_n_1_b[di] ;
-        zo_pi_n_1_w[a] = pi_n_1_w[di] ;
-        // strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+        di = map(a, N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
       } else if (a <= N_L_P_S * 3 && a >= N_L_P_S * 2) {
-        int di = map(a, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        zo_pi_n_1_r[a] = pi_n_1_r[di] ;
-        zo_pi_n_1_g[a] = pi_n_1_g[di] ;
-        zo_pi_n_1_b[a] = pi_n_1_b[di] ;
-        zo_pi_n_1_w[a] = pi_n_1_w[di] ;
-        //strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+        di = map(a, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
       } else if (a <= N_L_P_S * 4 && a >= N_L_P_S * 3) {
-        int di = map(a, (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
-        zo_pi_n_1_r[a] = pi_n_1_r[di] ;
-        zo_pi_n_1_g[a] = pi_n_1_g[di] ;
-        zo_pi_n_1_b[a] = pi_n_1_b[di] ;
-        zo_pi_n_1_w[a] = pi_n_1_w[di] ;
-        //strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+        di = map(a, (N_L_P_S * 3) + 1, N_L_P_S * 4, N_L_P_S, 0);
       }
+      zo_pi_n_1_r[a] = pi_n_1_r[di] ;
+      zo_pi_n_1_g[a] = pi_n_1_g[di] ;
+      zo_pi_n_1_b[a] = pi_n_1_b[di] ;
+      zo_pi_n_1_w[a] = pi_n_1_w[di] ;
     }//for i
     old_S_seuil = S_seuil - 1;
   }//modulo 36
@@ -331,33 +225,18 @@ void eff_modulo() {
   else if ( type_modulo == 60 ) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
-        zo_pi_n_1_r[i] = pi_n_1_r[i];
-        zo_pi_n_1_g[i] = pi_n_1_g[i];
-        zo_pi_n_1_b[i] = pi_n_1_b[i];
-        zo_pi_n_1_w[i] = pi_n_1_w[i];
-        //strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[i] / 255) * master), ((pi_n_1_g[i] / 255) * master), ((pi_n_1_b[i] / 255) * master), ((pi_n_1_w[i] / 255) * master));
+        di = i;
       } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-        int di = map(i, N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
-        zo_pi_n_1_r[i] = pi_n_1_r[di];
-        zo_pi_n_1_g[i] = pi_n_1_g[di];
-        zo_pi_n_1_b[i] = pi_n_1_b[di];
-        zo_pi_n_1_w[i] = pi_n_1_w[di];
-        //strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * master), ((pi_n_1_g[di] / 255) * master), ((pi_n_1_b[di] / 255) * master), ((pi_n_1_w[di] / 255) * master));
+        di = map(i, N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
       } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-        int di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        zo_pi_n_1_r[i] = pi_n_1_r[di];
-        zo_pi_n_1_g[i] = pi_n_1_g[di];
-        zo_pi_n_1_b[i] = pi_n_1_b[di];
-        zo_pi_n_1_w[i] = pi_n_1_w[di];
-        //strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * master), ((pi_n_1_g[di] / 255) * master), ((pi_n_1_b[di] / 255) * master), ((pi_n_1_w[di] / 255) * master));
+        di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
       } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-        int di = map(i, (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
-        zo_pi_n_1_r[i] = pi_n_1_r[di];
-        zo_pi_n_1_g[i] = pi_n_1_g[di];
-        zo_pi_n_1_b[i] = pi_n_1_b[di];
-        zo_pi_n_1_w[i] = pi_n_1_w[di];
-        //strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * master), ((pi_n_1_g[di] / 255) * master), ((pi_n_1_b[di] / 255) * master), ((pi_n_1_w[di] / 255) * master));
+        di = map(i, (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
       }
+      zo_pi_n_1_r[i] = pi_n_1_r[di];
+      zo_pi_n_1_g[i] = pi_n_1_g[di];
+      zo_pi_n_1_b[i] = pi_n_1_b[di];
+      zo_pi_n_1_w[i] = pi_n_1_w[di];
     }//for i
   }//modulo 60
 
@@ -373,33 +252,18 @@ void eff_modulo() {
     }
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
-        zo_pi_n_1_r[i] = pi_n_1_r[i] * str;
-        zo_pi_n_1_g[i] = pi_n_1_g[i] * str;
-        zo_pi_n_1_b[i] = pi_n_1_b[i] * str;
-        zo_pi_n_1_w[i] = pi_n_1_w[i] * str;
-        //strands[1]->pixels[i] = pixelFromRGBW((pi_n_1_r[i] * str * master / 255), (pi_n_1_g[i] * str * master / 255), (pi_n_1_b[i] * str * master / 255), (pi_n_1_w[i] * str * master / 255));
+        di = i;
       } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-        int di = map(i, N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * str;
-        //strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * str * master), ((pi_n_1_g[di] / 255) * str * master), ((pi_n_1_b[di] / 255) * str * master), ((pi_n_1_w[di] / 255) * str * master));
+        di = map(i, N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
       } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-        int di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * str;
-        // strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * str * master), ((pi_n_1_g[di] / 255) * str * master), ((pi_n_1_b[di] / 255) * str * master), ((pi_n_1_w[di] / 255) * str * master));
+        di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
       } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-        int di = map(i, (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * str;
-        //strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * str * master), ((pi_n_1_g[di] / 255) * str * master), ((pi_n_1_b[di] / 255) * str * master), ((pi_n_1_w[di] / 255) * str * master));
+        di = map(i, (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
       }
+      zo_pi_n_1_r[i] = pi_n_1_r[di] * str;
+      zo_pi_n_1_g[i] = pi_n_1_g[di] * str;
+      zo_pi_n_1_b[i] = pi_n_1_b[di] * str;
+      zo_pi_n_1_w[i] = pi_n_1_w[di] * str;
     }//for i
   }//modulo 61
 
@@ -411,33 +275,18 @@ void eff_modulo() {
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
-        zo_pi_n_1_r[i] = pi_n_1_r[i] * module;
-        zo_pi_n_1_g[i] = pi_n_1_g[i] * module;
-        zo_pi_n_1_b[i] = pi_n_1_b[i] * module;
-        zo_pi_n_1_w[i] = pi_n_1_w[i] * module;
-        //strands[1]->pixels[i] = pixelFromRGBW((pi_n_1_r[i] * module * master / 255), (pi_n_1_g[i] * module * master / 255), (pi_n_1_b[i] * module * master / 255), (pi_n_1_w[i] * module * master / 255));
+        di = i;
       } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-        int di = map(i, N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * module;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * module;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * module;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * module;
-        // strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * module * master), ((pi_n_1_g[di] / 255) * module * master), ((pi_n_1_b[di] / 255) * module * master), ((pi_n_1_w[di] / 255) * module * master));
+        di = map(i, N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
       } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-        int di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * module;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * module;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * module;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * module;
-        // strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * module * master), ((pi_n_1_g[di] / 255) * module * master), ((pi_n_1_b[di] / 255) * module * master), ((pi_n_1_w[di] / 255) * module * master));
+        di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
       } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-        int di = map(i, (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * module;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * module;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * module;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * module;
-        //strands[1]->pixels[i] = pixelFromRGBW(((pi_n_1_r[di] / 255) * module * master), ((pi_n_1_g[di] / 255) * module * master), ((pi_n_1_b[di] / 255) * module * master), ((pi_n_1_w[di] / 255) * module * master));
+        di = map(i, (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
       }
+      zo_pi_n_1_r[i] = pi_n_1_r[di] * module;
+      zo_pi_n_1_g[i] = pi_n_1_g[di] * module;
+      zo_pi_n_1_b[i] = pi_n_1_b[di] * module;
+      zo_pi_n_1_w[i] = pi_n_1_w[di] * module;
     }//for i
   }// modulo 62
 
@@ -461,33 +310,18 @@ void eff_modulo() {
       } while (zo_pi_n_1_r[a] != 0 || zo_pi_n_1_g[a] != 0 || zo_pi_n_1_b[a] != 0 || zo_pi_n_1_w[a] != 0);
 
       if (a <= N_L_P_S) {
-        zo_pi_n_1_r[a] = pi_n_1_r[a] * str;
-        zo_pi_n_1_g[a] = pi_n_1_g[a] * str;
-        zo_pi_n_1_b[a] = pi_n_1_b[a] * str;
-        zo_pi_n_1_w[a] = pi_n_1_w[a] * str;
-        //strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[a] * str * master / 255), (pi_n_1_g[a] * str * master / 255), (pi_n_1_b[a] * str * master / 255), (pi_n_1_w[a] * str * master / 255));
+        di = a;
       } else if (a <= N_L_P_S * 2 && a >= N_L_P_S) {
-        int di = map(a, N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
-        zo_pi_n_1_r[a] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[a] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[a] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[a] = pi_n_1_w[di] * str;
-        //strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(a, N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
       } else if (a <= N_L_P_S * 3 && a >= N_L_P_S * 2) {
-        int di = map(a, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        zo_pi_n_1_r[a] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[a] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[a] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[a] = pi_n_1_w[di] * str;
-        // strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(a, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
       } else if (a <= N_L_P_S * 4 && a >= N_L_P_S * 3) {
-        int di = map(a, (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
-        zo_pi_n_1_r[a] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[a] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[a] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[a] = pi_n_1_w[di] * str;
-        //strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(a, (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
       }
+      zo_pi_n_1_r[a] = pi_n_1_r[di] * str;
+      zo_pi_n_1_g[a] = pi_n_1_g[di] * str;
+      zo_pi_n_1_b[a] = pi_n_1_b[di] * str;
+      zo_pi_n_1_w[a] = pi_n_1_w[di] * str;
     }//for i
   }//modulo 63
 
@@ -510,33 +344,18 @@ void eff_modulo() {
     }
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
-        zo_pi_n_1_r[i] = pi_n_1_r[i] * str;
-        zo_pi_n_1_g[i] = pi_n_1_g[i] * str;
-        zo_pi_n_1_b[i] = pi_n_1_b[i] * str;
-        zo_pi_n_1_w[i] = pi_n_1_w[i] * str;
-        // strands[1]->pixels[i] = pixelFromRGBW((pi_n_1_r[i] * str * master / 255), (pi_n_1_g[i] * str * master / 255), (pi_n_1_b[i] * str * master / 255), (pi_n_1_w[i] * str * master / 255));
+        di = i;
       } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-        int di = map(i, N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * str;
-        //strands[1]->pixels[i] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(i, N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
       } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-        int di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * str;
-        // strands[1]->pixels[i] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
       } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-        int di = map(i, (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
-        zo_pi_n_1_r[i] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[i] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[i] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[i] = pi_n_1_w[di] * str;
-        // strands[1]->pixels[i] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(i, (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
       }
+      zo_pi_n_1_r[i] = pi_n_1_r[di] * str;
+      zo_pi_n_1_g[i] = pi_n_1_g[di] * str;
+      zo_pi_n_1_b[i] = pi_n_1_b[di] * str;
+      zo_pi_n_1_w[i] = pi_n_1_w[di] * str;
     }//for i
   }//modulo 64
 
@@ -568,33 +387,18 @@ void eff_modulo() {
       } while (zo_pi_n_1_r[a] != 0 || zo_pi_n_1_g[a] != 0 || zo_pi_n_1_b[a] != 0 || zo_pi_n_1_w[a] != 0 );
 
       if (a <= N_L_P_S) {
-        zo_pi_n_1_r[a] = pi_n_1_r[a] * str;
-        zo_pi_n_1_g[a] = pi_n_1_g[a] * str;
-        zo_pi_n_1_b[a] = pi_n_1_b[a] * str;
-        zo_pi_n_1_w[a] = pi_n_1_w[a] * str;
-        //strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[a] * str * master / 255), (pi_n_1_g[a] * str * master / 255), (pi_n_1_b[a] * str * master / 255), (pi_n_1_w[a] * str * master / 255));
+        di = a;
       } else if (a <= N_L_P_S * 2 && a >= N_L_P_S) {
-        int di = map(a, N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
-        zo_pi_n_1_r[a] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[a] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[a] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[a] = pi_n_1_w[di] * str;
-        // strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(a, N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
       } else if (a <= N_L_P_S * 3 && a >= N_L_P_S * 2) {
-        int di = map(a, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        zo_pi_n_1_r[a] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[a] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[a] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[a] = pi_n_1_w[di] * str;
-        // strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(a, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
       } else if (a <= N_L_P_S * 4 && a >= N_L_P_S * 3) {
-        int di = map(a, (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
-        zo_pi_n_1_r[a] = pi_n_1_r[di] * str;
-        zo_pi_n_1_g[a] = pi_n_1_g[di] * str;
-        zo_pi_n_1_b[a] = pi_n_1_b[di] * str;
-        zo_pi_n_1_w[a] = pi_n_1_w[di] * str;
-        // strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * str * master / 255), (pi_n_1_g[di] * str * master / 255), (pi_n_1_b[di] * str * master / 255), (pi_n_1_w[di] * str * master / 255));
+        di = map(a, (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
       }
+      zo_pi_n_1_r[a] = pi_n_1_r[di] * str;
+      zo_pi_n_1_g[a] = pi_n_1_g[di] * str;
+      zo_pi_n_1_b[a] = pi_n_1_b[di] * str;
+      zo_pi_n_1_w[a] = pi_n_1_w[di] * str;
     }//for i
   }//modulo 65
 
@@ -613,33 +417,18 @@ void eff_modulo() {
       } while (zo_pi_n_1_r[a] != 0 || zo_pi_n_1_g[a] != 0 || zo_pi_n_1_b[a] != 0 || zo_pi_n_1_w[a] != 0 );
 
       if (a <= N_L_P_S) {
-        zo_pi_n_1_r[a] = pi_n_1_r[a];
-        zo_pi_n_1_g[a] = pi_n_1_g[a];
-        zo_pi_n_1_b[a] = pi_n_1_b[a];
-        zo_pi_n_1_w[a] = pi_n_1_w[a];
-        //strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[a] * master / 255), (pi_n_1_g[a] * master / 255), (pi_n_1_b[a] * master / 255), (pi_n_1_w[a] * master / 255));
+        di = a;
       } else if (a <= N_L_P_S * 2 && a >= N_L_P_S) {
-        int di = map(a, N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
-        zo_pi_n_1_r[a] = pi_n_1_r[di];
-        zo_pi_n_1_g[a] = pi_n_1_g[di];
-        zo_pi_n_1_b[a] = pi_n_1_b[di];
-        zo_pi_n_1_w[a] = pi_n_1_w[di];
-        // strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+        di = map(a, N_L_P_S + 1, N_L_P_S * 2, 0, N_L_P_S);
       } else if (a <= N_L_P_S * 3 && a >= N_L_P_S * 2) {
-        int di = map(a, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        zo_pi_n_1_r[a] = pi_n_1_r[di];
-        zo_pi_n_1_g[a] = pi_n_1_g[di];
-        zo_pi_n_1_b[a] = pi_n_1_b[di];
-        zo_pi_n_1_w[a] = pi_n_1_w[di];
-        // strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+        di = map(a, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
       } else if (a <= N_L_P_S * 4 && a >= N_L_P_S * 3) {
-        int di = map(a, (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
-        zo_pi_n_1_r[a] = pi_n_1_r[di];
-        zo_pi_n_1_g[a] = pi_n_1_g[di];
-        zo_pi_n_1_b[a] = pi_n_1_b[di];
-        zo_pi_n_1_w[a] = pi_n_1_w[di];
-        // strands[1]->pixels[a] = pixelFromRGBW((pi_n_1_r[di] * master / 255), (pi_n_1_g[di] * master / 255), (pi_n_1_b[di] * master / 255), (pi_n_1_w[di] * master / 255));
+        di = map(a, (N_L_P_S * 3) + 1, N_L_P_S * 4, 0, N_L_P_S);
       }
+      zo_pi_n_1_r[a] = pi_n_1_r[di];
+      zo_pi_n_1_g[a] = pi_n_1_g[di];
+      zo_pi_n_1_b[a] = pi_n_1_b[di];
+      zo_pi_n_1_w[a] = pi_n_1_w[di];
     }//for i
     old_S_seuil = S_seuil - 1;
   }//modulo 66
