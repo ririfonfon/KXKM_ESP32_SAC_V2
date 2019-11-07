@@ -1,5 +1,5 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
-#define ESP_SK_PW 16
+#define ESP_SK_PW_FLUO_FLUO 10
 
 #define VERSION 33
 
@@ -14,9 +14,9 @@
 #endif
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
-#define adr (1+(ESP_SK_PW-1)*19)
+#define adr (1+(ESP_SK_PW_FLUO_FLUO-1)*19)
 //#define adr 1
-#define NUM_LEDS_PER_STRIP_MAX 120
+#define NUM_LEDS_PER_STRIP_MAX 73
 int NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_MAX;
 int N_L_P_S = NUM_LEDS_PER_STRIP;
 
@@ -189,15 +189,15 @@ void setup() {
 
   Serial.begin(115200);
 
-  //////////////////////////////////////// ESP_SK_PW ID ////////////////////////////////////
-#ifdef ESP_SK_PW
-  eeprom_setID((byte)ESP_SK_PW);
+  //////////////////////////////////////// ESP_SK_PW_FLUO_FLUO ID ////////////////////////////////////
+#ifdef ESP_SK_PW_FLUO_FLUO
+  eeprom_setID((byte)ESP_SK_PW_FLUO_FLUO);
 #endif
 
   // NAME
   myID = eeprom_getID();
-  String myName("ESP_SK_PW");
-  sprintf(nodeName, "ESP_SK_PW %02i %i", myID, VERSION);
+  String myName("ESP_SK_PW_FLUO_FLUO");
+  sprintf(nodeName, "ESP_SK_PW_FLUO_FLUO %02i %i", myID, VERSION);
 #ifdef DEBUG
   Serial.print("Starting ");
   Serial.println(nodeName);
