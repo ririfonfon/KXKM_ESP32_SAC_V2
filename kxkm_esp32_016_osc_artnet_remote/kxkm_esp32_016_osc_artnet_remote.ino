@@ -90,6 +90,7 @@ float pi_1_sw[NUM_LEDS_PER_STRIP_MAX];
 
 int color_mode;
 int mirror;
+int zoom;
 
 unsigned long now;
 int effet_etat = 0;

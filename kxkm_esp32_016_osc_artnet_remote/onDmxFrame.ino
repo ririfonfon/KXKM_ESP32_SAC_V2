@@ -103,7 +103,9 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     ledChannelOne = (data[adr + 15] * data[adr + 15]) / 255;
     ledChannelTwo = (data[adr + 16] * data[adr + 16]) / 255;
 
-    NUM_LEDS_PER_STRIP = (NUM_LEDS_PER_STRIP_MAX * data[adr + 17]) / 255;
+    zoom = (NUM_LEDS_PER_STRIP_MAX * data[adr + 17]) / 255;
+    if (zoom <= 0) zoom = 1;
+    NUM_LEDS_PER_STRIP = zoom;
 
     // modulo mode && mirror
     if (mirror >= 0 && mirror <= 10) {// no mirror
