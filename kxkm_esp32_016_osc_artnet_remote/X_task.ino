@@ -73,9 +73,9 @@ void Map1code( void * pvParameters ) {
           www = 0;
         }
 
-        int ci = pix_pos + i - 1;
+        int ci = pix_pos + i ;
         if (ci > NUM_LEDS_PER_STRIP) {
-          ci = ci - NUM_LEDS_PER_STRIP - 1;
+          ci = ci - NUM_LEDS_PER_STRIP ;
         }
 
         if (ci >= 0 && ci <= N_L_P_S) {
