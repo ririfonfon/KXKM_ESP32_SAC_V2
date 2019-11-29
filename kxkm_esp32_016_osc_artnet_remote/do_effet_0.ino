@@ -28,7 +28,7 @@ void do_effet_0() {
 
   if (pix_mod >= 21 && pix_mod <= 30) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-      if (( ((i + pix_pos) / (pix_start + 2)) % 2 ) == 0) {
+      if (( ((i + pix_pos) / (pix_start + 1)) % 2 ) == 0) {
         pi_n_1_r[i] = pi_1_r[i];
         pi_n_1_g[i] = pi_1_g[i];
         pi_n_1_b[i] = pi_1_b[i];
