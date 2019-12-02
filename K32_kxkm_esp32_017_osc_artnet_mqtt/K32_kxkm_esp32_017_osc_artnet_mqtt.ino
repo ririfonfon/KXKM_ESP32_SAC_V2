@@ -1,7 +1,7 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
-// #define NODEID 42 // id card
+#define NODEID 80 // id card
 
-#define ESP_SK_PW 1
+#define ESP_SK_PW 11
 
 #define VERSION 35
 
@@ -26,8 +26,6 @@ int N_L_P_S = NUM_LEDS_PER_STRIP;
 //#define DEBUG_dmx 1
 //#define DEBUG_dmxframe 1
 //#define DEBUG_STR 1
-//#define DEBUGosc 1
-//#define DEBUGwifi 1
 
 /////////////////////////////////////////lib/////////////////////////////////////////
 #include "K32.h"

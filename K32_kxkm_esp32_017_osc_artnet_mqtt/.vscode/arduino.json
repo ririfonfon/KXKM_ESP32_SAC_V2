@@ -1,0 +1,8 @@
+{
+    "programmer": "AVRISP mkII",
+    "board": "esp32:esp32:esp32wrover",
+    "configuration": "PartitionScheme=default,FlashMode=qio,FlashFreq=80,UploadSpeed=512000,DebugLevel=none",
+    "port": "COM3",
+    "sketch": "K32_kxkm_esp32_017_osc_artnet_mqtt.ino",
+    "output": "../build"
+}
