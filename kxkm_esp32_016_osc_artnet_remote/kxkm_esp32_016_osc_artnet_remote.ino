@@ -15,7 +15,6 @@
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
 #define adr (1+(ESP_SK_PW-1)*19)
-//#define adr 1
 #define NUM_LEDS_PER_STRIP_MAX 120
 int NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_MAX;
 int N_L_P_S = NUM_LEDS_PER_STRIP;
