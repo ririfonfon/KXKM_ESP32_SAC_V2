@@ -3,9 +3,10 @@
 // #define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
 
 #define LULU_ID   13
-#define LULU_TYPE "WS_PWM"
-#define LULU_VER  35
+#define LULU_TYPE "SK_PWM"
 #define LULU_UNI  0                     // DMX Universe to listen for
+
+#define LULU_VER  35
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
 #define adr (1+(LULU_ID-1)*19)
@@ -21,33 +22,20 @@ int N_L_P_S = NUM_LEDS_PER_STRIP;
 
 /////////////////////////////////////////lib/////////////////////////////////////////
 #include "K32.h"
-#include <ArtnetWifi.h>//https://github.com/rstephan/ArtnetWifi
+#include <ArtnetWifi.h>           //https://github.com/rstephan/ArtnetWifi
 unsigned long lastRefresh = 0;
 #define REFRESH 10
 unsigned long lastRefresh_bat = 0;
 #define REFRESH_BAT 100
 
-
-#if defined(ARDUINO) && ARDUINO >= 100
-// No extras
-#elif defined(ARDUINO) // pre-1.0
-// No extras
-#elif defined(ESP_PLATFORM)
-#include "arduinoish.hpp"
-#endif
-
-#define HBSIZE 32
 String nodeName;
-byte myID;
-
 K32* k32;
 
 ///////////////////////////////Lib esp32_digital_led_lib//////////////////////////////
 
 #define min(m,n) ((m)<(n)?(m):(n))
 #define NUM_STRIPS 2
-//int PINS[NUM_STRIPS] = {22, 21};// V1
-int PINS[NUM_STRIPS] = {23, 22};// V2
+int PINS[NUM_STRIPS];
 const int numberOfChannels = NUM_STRIPS * NUM_LEDS_PER_STRIP_MAX * 4;
 //const int NUM_LEDS_PER_STRIP =  NUM_LEDS_PER_STRIP_MAX ;
 strand_t STRANDS[NUM_STRIPS];
@@ -178,25 +166,17 @@ void setup() {
   //////////////////////////////////////// K32_lib ////////////////////////////////////
   k32 = new K32();
 
-  nodeName = "esp";
-  nodeName += "-"+String(k32->system->id());
-  nodeName += "-"+String(LULU_TYPE);
-  nodeName += "-"+String(LULU_ID);
-  nodeName += "-v"+String(LULU_VER);
+  nodeName += String(LULU_TYPE)+"-"+String(LULU_ID)+"-v"+String(LULU_VER);
+  PINS[0] = k32->system->ledpin(0);
+  PINS[1] = k32->system->ledpin(1);
 
   //////////////////////////////////////// K32 modules ////////////////////////////////////
   k32->init_stm32();
-  //  k32->init_audio();
-  //  k32->init_light();
 
   // WIFI
   k32->init_wifi( nodeName );
   k32->wifi->staticIP("2.0.0." + String(k32->system->id() + 100), "2.0.0.1", "255.0.0.0");
   k32->wifi->connect("kxkm24lulu", NULL);
-  
-  // k32->wifi->add("ReMoTe");
-  // k32->wifi->add("kxkm24lulu", NULL, "2.0.0."+String(k32->settings->id()+100), "255.0.0.0", "2.0.0.1");
-  // k32->wifi->add("interweb", "superspeed37");
 
   // Start OSC
   k32->init_osc({
