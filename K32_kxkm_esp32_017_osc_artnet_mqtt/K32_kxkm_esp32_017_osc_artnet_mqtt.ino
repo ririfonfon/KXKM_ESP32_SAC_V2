@@ -1,22 +1,14 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
-#define K32_SET_NODEID 78         // board unique id    (necessary one time only)
-#define K32_SET_HWREVISION    2  // board HW revision  (necessary one time only)
+// #define K32_SET_NODEID        78 // board unique id    (necessary first time only)
+// #define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
 
-#define ESP_SK_PW 13
-
-#define VERSION 35
-
-#define UNI 0                     // DMX Universe to listen for
-
-////////////////////////////////////////TaskHandle_t //////////////////////////////////
-#if CONFIG_FREERTOS_UNICORE
-#define ARDUINO_RUNNING_CORE 0
-#else
-#define ARDUINO_RUNNING_CORE 1
-#endif
+#define LULU_ID   13
+#define LULU_TYPE "WS_PWM"
+#define LULU_VER  35
+#define LULU_UNI  0                     // DMX Universe to listen for
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
-#define adr (1+(ESP_SK_PW-1)*19)
+#define adr (1+(LULU_ID-1)*19)
 #define NUM_LEDS_PER_STRIP_MAX 120
 int NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_MAX;
 int N_L_P_S = NUM_LEDS_PER_STRIP;
@@ -45,7 +37,7 @@ unsigned long lastRefresh_bat = 0;
 #endif
 
 #define HBSIZE 32
-char nodeName[HBSIZE];
+String nodeName;
 byte myID;
 
 K32* k32;
@@ -170,7 +162,7 @@ int etat_r = 0;
 ///////////////////////////////////// Artnet settings /////////////////////////////////////
 ArtnetWifi artnet;
 ////const int startUniverse = 0; // CHANGE FOR YOUR SETUP most software this is 1, some software send out artnet first universe as 0.
-const int startUniverse = UNI; // CHANGE FOR UNIVERSE.
+const int startUniverse = LULU_UNI; // CHANGE FOR UNIVERSE.
 
 // Check if we got all universes
 const int maxUniverses = numberOfChannels / 512 + ((numberOfChannels % 512) ? 1 : 0);
@@ -186,25 +178,33 @@ void setup() {
   //////////////////////////////////////// K32_lib ////////////////////////////////////
   k32 = new K32();
 
+  nodeName = "esp";
+  nodeName += "-"+String(k32->system->id());
+  nodeName += "-"+String(LULU_TYPE);
+  nodeName += "-"+String(LULU_ID);
+  nodeName += "-v"+String(LULU_VER);
+
+  //////////////////////////////////////// K32 modules ////////////////////////////////////
   k32->init_stm32();
   //  k32->init_audio();
   //  k32->init_light();
 
   // WIFI
-  k32->init_wifi();
-  k32->wifi->staticIP("2.0.0." + String(ESP_SK_PW + 100), "2.0.0.1", "255.0.0.0");
+  k32->init_wifi( nodeName );
+  k32->wifi->staticIP("2.0.0." + String(k32->system->id() + 100), "2.0.0.1", "255.0.0.0");
   k32->wifi->connect("kxkm24lulu", NULL);
+  
   // k32->wifi->add("ReMoTe");
   // k32->wifi->add("kxkm24lulu", NULL, "2.0.0."+String(k32->settings->id()+100), "255.0.0.0", "2.0.0.1");
   // k32->wifi->add("interweb", "superspeed37");
 
   // Start OSC
-  //  k32->init_osc({
-  //      .port_in  = 1818,             // osc port input (0 = disable)  // 1818
-  //      .port_out = 1819,             // osc port output (0 = disable) // 1819
-  //      .beatInterval     = 0,        // heartbeat interval milliseconds (0 = disable)
-  //      .beaconInterval   = 3000      // full beacon interval milliseconds (0 = disable)
-  //    });// OSC
+  k32->init_osc({
+    .port_in  = 1818,             // osc port input (0 = disable)  // 1818
+    .port_out = 1819,             // osc port output (0 = disable) // 1819
+    .beatInterval     = 0,        // heartbeat interval milliseconds (0 = disable)
+    .beaconInterval   = 3000      // full beacon interval milliseconds (0 = disable)
+  });// OSC
 
 #ifdef DEBUG
   Serial.print("Starting ");

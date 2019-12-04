@@ -5,7 +5,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   sendFrame = 1;
 
   boolean tail = false;
-  if (universe == UNI) {
+  if (universe == LULU_UNI) {
 
 #ifdef DEBUG_dmxframe
     Serial.print("dmx frame: ");
@@ -176,7 +176,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
         //    type_effet = 255;
       }
     }
-  }// if universe == UNI
+  }// if universe == LULU_UNI
 
   previousDataLength = length;
 
