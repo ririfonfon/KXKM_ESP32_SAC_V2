@@ -6,7 +6,7 @@
 #define LULU_TYPE "SK_PWM"
 #define LULU_UNI  0                     // DMX Universe to listen for
 
-#define LULU_VER  35
+#define LULU_VER  36
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
 #define adr (1+(LULU_ID-1)*19)
