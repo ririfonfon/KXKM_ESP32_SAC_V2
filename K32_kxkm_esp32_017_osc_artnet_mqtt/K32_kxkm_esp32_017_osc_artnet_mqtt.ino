@@ -1,14 +1,14 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
-#define NODEID 80 // id card
+#define K32_SET_NODEID 78         // board unique id    (necessary one time only)
+#define K32_SET_HWREVISION    2  // board HW revision  (necessary one time only)
 
-#define ESP_SK_PW 11
+#define ESP_SK_PW 13
 
 #define VERSION 35
 
 #define UNI 0                     // DMX Universe to listen for
 
 ////////////////////////////////////////TaskHandle_t //////////////////////////////////
-//TaskHandle_t Map1;
 #if CONFIG_FREERTOS_UNICORE
 #define ARDUINO_RUNNING_CORE 0
 #else
@@ -22,7 +22,7 @@ int NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_MAX;
 int N_L_P_S = NUM_LEDS_PER_STRIP;
 
 /////////////////////////////////////////Debug///////////////////////////////////////
-//#define DEBUG 1
+#define DEBUG 1
 //#define DEBUG_dmx 1
 //#define DEBUG_dmxframe 1
 //#define DEBUG_STR 1
@@ -48,7 +48,7 @@ unsigned long lastRefresh_bat = 0;
 char nodeName[HBSIZE];
 byte myID;
 
-K32* engine;
+K32* k32;
 
 ///////////////////////////////Lib esp32_digital_led_lib//////////////////////////////
 
@@ -184,34 +184,27 @@ void setup() {
   Serial.begin(115200);
 
   //////////////////////////////////////// K32_lib ////////////////////////////////////
-  engine = new K32({
-    .stm32    = true,     // stm32 event listening and battery monitoring
-    .leds     = false,     // dual ws2812
-    .audio    = false,     // audio engine with PCM51xx sound card
-    .sampler  = false,     // media indexing to midi bank/note-xxx
-    .wifi     = {
-      .ssid = "kxkm24lulu",             // ssid (NULL to disable)
-      .password = NULL,             // password (NULL if not secured)
-      .ip = ("2.0.0." + String(ESP_SK_PW + 100)).c_str()                 // static ip (NULL to use DHCP)
-    },
-    .osc  = {
-      .port_in  = 1818,             // osc port input (0 = disable)  // 1818
-      .port_out = 1819,             // osc port output (0 = disable) // 1819
-      .beatInterval     = 0,        // heartbeat interval milliseconds (0 = disable)
-      .beaconInterval   = 3000      // full beacon interval milliseconds (0 = disable)
-    },
-    .mqtt = {
-      .broker = "2.0.0.1",      //"2.0.0.1"
-      .beatInterval = 0            // heartbeat interval milliseconds (0 = disable)
-    }
-  });
+  k32 = new K32();
 
-  // Settings SET
-#ifdef NODEID
-  engine->settings->set("id", NODEID);
-  engine->settings->set("model", 2);   // 0: proto -- 1: big -- 2: small
-  engine->settings->set("channel", 15);
-#endif
+  k32->init_stm32();
+  //  k32->init_audio();
+  //  k32->init_light();
+
+  // WIFI
+  k32->init_wifi();
+  k32->wifi->staticIP("2.0.0." + String(ESP_SK_PW + 100), "2.0.0.1", "255.0.0.0");
+  k32->wifi->connect("kxkm24lulu", NULL);
+  // k32->wifi->add("ReMoTe");
+  // k32->wifi->add("kxkm24lulu", NULL, "2.0.0."+String(k32->settings->id()+100), "255.0.0.0", "2.0.0.1");
+  // k32->wifi->add("interweb", "superspeed37");
+
+  // Start OSC
+  //  k32->init_osc({
+  //      .port_in  = 1818,             // osc port input (0 = disable)  // 1818
+  //      .port_out = 1819,             // osc port output (0 = disable) // 1819
+  //      .beatInterval     = 0,        // heartbeat interval milliseconds (0 = disable)
+  //      .beaconInterval   = 3000      // full beacon interval milliseconds (0 = disable)
+  //    });// OSC
 
 #ifdef DEBUG
   Serial.print("Starting ");
@@ -242,13 +235,13 @@ void setup() {
 ///////////////////////////////////////// LOOP /////////////////////////////////////////////////
 void loop() {
 
-  if (engine->wifi->isConnected()) {
+  if (k32->wifi->isConnected()) {
     artnet.read();
     eff_modulo();
   }// if wifi
 
   if ((millis() - lastRefresh) > REFRESH) {
-    if (!engine->wifi->isConnected()) {
+    if (!k32->wifi->isConnected()) {
       ledBlack();//passe led noir
     }
     lastRefresh = millis();

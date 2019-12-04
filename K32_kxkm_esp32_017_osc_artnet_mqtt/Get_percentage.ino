@@ -1,6 +1,6 @@
 
 void get_percentage() {
-  percentage = engine->stm32->battery();
+  percentage = k32->system->stm32->battery();
   if (percentage > 50) {
     //3ledverte
     for (int i = 0 ; i < 3 ; i++) {
