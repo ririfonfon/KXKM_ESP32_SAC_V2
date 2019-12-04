@@ -69,6 +69,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     bb = (data[adr + 2] * data[adr + 2]) / 255;
     ww = (data[adr + 3] * data[adr + 3]) / 255;
 
+
     pix_mod = data[adr + 4];
 
     if (pix_mod >= 0 && pix_mod <= 20 || pix_mod >= 31 && pix_mod <= 255) {

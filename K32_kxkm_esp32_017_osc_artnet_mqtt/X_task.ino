@@ -79,10 +79,10 @@ void Map1code( void * pvParameters ) {
         }
 
         if (ci >= 0 && ci <= N_L_P_S) {
-          pi_1_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
-          pi_1_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
-          pi_1_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
-          pi_1_w[ci] = (( www * www / 255 )  * ww) / 255;
+          pi_1_r[ci] = ( rrr * rr) / 255;
+          pi_1_g[ci] = ( ggg * gg) / 255;
+          pi_1_b[ci] = ( bbb * bb) / 255;
+          pi_1_w[ci] = ( www * ww) / 255;
           pi_1_sr[ci] = 0;
           pi_1_sg[ci] = 0;
           pi_1_sb[ci] = 0;

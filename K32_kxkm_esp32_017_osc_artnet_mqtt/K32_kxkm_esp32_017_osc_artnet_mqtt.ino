@@ -2,7 +2,7 @@
 // #define K32_SET_NODEID        78 // board unique id    (necessary first time only)
 // #define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
 
-#define LULU_ID   13
+#define LULU_ID   17
 #define LULU_TYPE "SK_PWM"
 #define LULU_UNI  0                     // DMX Universe to listen for
 
