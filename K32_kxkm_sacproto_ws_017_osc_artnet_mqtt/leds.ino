@@ -12,15 +12,7 @@ void ledBlack() {
 #ifdef DEBUG
   Serial.println("ledBlack()");
 #endif
-  for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-    pi_n_1_r[i] = 0;
-    pi_n_1_g[i] = 0;
-    pi_n_1_b[i] = 0;
-    strands[1]->pixels[i] = pixelFromRGBW(0, 0, 0, 0);
-  }//for i
-  ledChannelOne = 0;
-  ledChannelTwo = 0;
-  leds_show();
+  manu_frame(0);
 }//ledBlack
 
 void initTest() {

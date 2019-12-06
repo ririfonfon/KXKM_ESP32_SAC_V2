@@ -1,4 +1,4 @@
-int lock_count = 0;
+unsigned long lock_count = 0;
 uint8_t pr = 0;
 uint8_t bt = 0;
 #define BT_T 100
@@ -47,11 +47,18 @@ void check_button () {
 
   if (sensorValue < 200) {
     pr = 0; // relache btn
-  } else if (sensorValue > 410 && sensorValue < 450) {
-    lock_count  += 1;
-    if (lock_count > 800) {
+  } 
+  else if (sensorValue > 410 && sensorValue < 450) {
+    if (lock_count == 0) lock_count = millis();
+    if (millis() - lock_count > 2000) {
       lock = !lock;
+      ledBlack();
       lock_count = 0;
+      
+#ifdef DEBUG
+      if (lock) Serial.println("locked in manual");
+      else Serial.println("unlocked to artnet");
+#endif
     }
     pr = 2; bt = 34;// bt3 4
     for (int i = NUM_LEDS_PER_STRIP_MAX  ; i < NUM_LEDS_PER_STRIP_MAX + 2 ; i++) {
@@ -123,7 +130,7 @@ void check_button () {
 
   if (lock && pr == 0 && bt != 0) {
     if (bt == 1) {
-      manu_frame(1);
+      manu_frame(3);
 #ifdef DEBUG_btn
       Serial.println("/////bt1");
 #endif
@@ -131,7 +138,7 @@ void check_button () {
         strands[1]->pixels[i] = pixelFromRGB(40, 0, 0);
       }//for i
     } else if (bt == 2) {
-      manu_frame(2);
+      manu_frame(4);
 #ifdef DEBUG_btn
       Serial.println("/////bt2");
 #endif
@@ -139,7 +146,7 @@ void check_button () {
         strands[1]->pixels[i] = pixelFromRGB(0, 40, 0);
       }//for i
     } else if  (bt == 3) {
-      manu_frame(3);
+      manu_frame(5);
 #ifdef DEBUG_btn
       Serial.println("/////bt3");
 #endif
@@ -147,7 +154,7 @@ void check_button () {
         strands[1]->pixels[i] = pixelFromRGB(0, 0, 40);
       }//for i
     } else if  (bt == 4) {
-      manu_frame(0);
+      manu_frame(2);
 #ifdef DEBUG_btn
       Serial.println("/////bt4");
 #endif

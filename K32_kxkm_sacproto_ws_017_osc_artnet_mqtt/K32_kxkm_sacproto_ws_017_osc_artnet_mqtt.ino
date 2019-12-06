@@ -1,6 +1,6 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
 //#define K32_SET_NODEID        66 // board unique id    (necessary first time only)
-#define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
+// #define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
 
 #define LULU_ID   17
 #define LULU_TYPE "SK_PWM"
@@ -21,7 +21,7 @@ int N_L_P_S = NUM_LEDS_PER_STRIP;
 //#define DEBUG_dmxframe 1
 //#define DEBUG_STR 1
 //#define DEBUG_calibre_btn 1
-#define DEBUG_btn 1
+// #define DEBUG_btn 1
 
 
 /////////////////////////////////////////lib/////////////////////////////////////////
@@ -155,6 +155,10 @@ int etat_r = 0;
 
 bool lock = false;
 
+///////////////////////////////////// Wifi variable /////////////////////////////////////
+
+bool lostConnection = true;
+
 ///////////////////////////////////// Artnet settings /////////////////////////////////////
 ArtnetWifi artnet;
 ////const int startUniverse = 0; // CHANGE FOR YOUR SETUP most software this is 1, some software send out artnet first universe as 0.
@@ -165,6 +169,7 @@ const int maxUniverses = numberOfChannels / 512 + ((numberOfChannels % 512) ? 1 
 bool universesReceived[maxUniverses];
 bool sendFrame = 1;
 int previousDataLength = 0;
+
 
 ///////////////////////////////////////////////// SETUP ////////////////////////////////////////
 void setup() {
@@ -215,7 +220,7 @@ void setup() {
   ///////////////////////////////////////////////// CORE //////////////////////////////////////
   //  create a task that will be executed in the Map1code() function, with priority 1 and executed on core 0
   xTaskCreatePinnedToCore(Map1code, "Map1code", 4096, NULL, 1, NULL, 1);   // core 1 = loop
-  xTaskCreatePinnedToCore(effTask, "effTask", 4096, NULL, 1, NULL, 1);    // core 0 = wifi
+  xTaskCreatePinnedToCore(effTask, "effTask", 4096, NULL, 1, NULL, 0);    // core 0 = wifi
 
   ///////////////////////////////////////////////// osc //////////////////////////////////////
 
@@ -225,11 +230,13 @@ void setup() {
 void loop() {
   if (k32->wifi->isConnected()) {
     if (!lock) artnet.read();
+    lostConnection = false;
   }// if wifi
 
   if ((millis() - lastRefresh) > REFRESH) {
-    if (!k32->wifi->isConnected()) {
+    if (!k32->wifi->isConnected() && !lostConnection) {
       if (!lock) ledBlack();//passe led noir
+      lostConnection = true;
     }
     lastRefresh = millis();
   }
