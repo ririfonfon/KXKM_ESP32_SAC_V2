@@ -1,12 +1,13 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
 //#define K32_SET_NODEID        66 // board unique id    (necessary first time only)
-// #define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
+//#define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
 
+#define LULU_VER  38
 #define LULU_ID   17
+
 #define LULU_TYPE "SK_PWM"
 #define LULU_UNI  0                     // DMX Universe to listen for
 
-#define LULU_VER  37
 #define LULU_PATCHSIZE 19
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
@@ -21,7 +22,7 @@ int N_L_P_S = NUM_LEDS_PER_STRIP;
 //#define DEBUG_dmxframe 1
 //#define DEBUG_STR 1
 //#define DEBUG_calibre_btn 1
-// #define DEBUG_btn 1
+//#define DEBUG_btn 1
 
 
 /////////////////////////////////////////lib/////////////////////////////////////////
@@ -41,7 +42,6 @@ K32* k32;
 #define NUM_STRIPS 2
 int PINS[NUM_STRIPS];
 const int numberOfChannels = NUM_STRIPS * NUM_LEDS_PER_STRIP_MAX * 4;
-//const int NUM_LEDS_PER_STRIP =  NUM_LEDS_PER_STRIP_MAX ;
 strand_t STRANDS[NUM_STRIPS];
 strand_t * strands [] = { &STRANDS[0], &STRANDS[1]};
 
@@ -83,10 +83,8 @@ int last_time_effet = 0;
 int type_effet = 0;
 int modulo = 0;
 unsigned int str_ws = 0;
-unsigned int l_str;
 int type_modulo = 0;
 int str = 0;
-int str_l = 0;
 int pix_pos;
 int pix_pos_v;
 int pix_start;
@@ -112,9 +110,6 @@ float sww;
 int mod;
 int pix_mod;
 unsigned long str_ws_last = 0;
-//unsigned long t_last_l = 0;
-#define STROB_FRACTION 5
-#define STROB_ON 1
 #define STROB_ON_MS 15
 int pix_start_v;
 int ref_pix_pos;
