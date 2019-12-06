@@ -134,7 +134,6 @@ int old_S_seuil = 0;
 int S_count;
 int a;
 float str_blind_ws = 1;
-float str_blind_l = 1;
 
 ///////////////////////////////////// batterie variable /////////////////////////////////////
 
@@ -237,7 +236,7 @@ void loop() {
     get_percentage();
     lastRefresh_bat = millis();
   }
-  
+
   // MILLIS overflow protection
   if (millis() < lastRefresh) lastRefresh = millis();
   if (millis() < lastRefresh_bat) lastRefresh_bat = millis();
