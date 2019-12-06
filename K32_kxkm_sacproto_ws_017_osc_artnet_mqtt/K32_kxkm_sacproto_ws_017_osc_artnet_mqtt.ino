@@ -111,16 +111,11 @@ float sbb;
 float sww;
 int mod;
 int pix_mod;
-unsigned long t_now_effet = 0;
-uint8_t strob_count = 0;
 unsigned long str_ws_last = 0;
-unsigned long t_last_l = 0;
+//unsigned long t_last_l = 0;
 #define STROB_FRACTION 5
 #define STROB_ON 1
 #define STROB_ON_MS 15
-#define STROB_FRACTION_L 5
-#define STROB_ON_L 1
-#define STROB_ON_MS_L 15
 int pix_start_v;
 int ref_pix_pos;
 float pix_coef;
@@ -129,7 +124,6 @@ float pix_coef_fond;
 float pix_coefi_fond;
 int S_seuil;
 int old_S_seuil = 0;
-int S_count;
 int a;
 float str_blind_ws = 1;
 
