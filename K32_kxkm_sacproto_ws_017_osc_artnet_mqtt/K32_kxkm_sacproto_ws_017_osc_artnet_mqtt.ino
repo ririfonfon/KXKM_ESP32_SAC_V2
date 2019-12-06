@@ -5,7 +5,7 @@
 #define LULU_VER  38
 #define LULU_ID   17
 
-#define LULU_TYPE "SK_PWM"
+#define LULU_TYPE "Sac_WS_PWM"
 #define LULU_UNI  0                     // DMX Universe to listen for
 
 #define LULU_PATCHSIZE 19
