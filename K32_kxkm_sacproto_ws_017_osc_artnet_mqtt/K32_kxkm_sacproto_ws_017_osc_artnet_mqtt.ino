@@ -7,9 +7,10 @@
 #define LULU_UNI  0                     // DMX Universe to listen for
 
 #define LULU_VER  37
+#define LULU_PATCHSIZE 19
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
-#define adr (1+(LULU_ID-1)*19)
+#define adr (1+(LULU_ID-1)*(LULU_PATCHSIZE))
 #define NUM_LEDS_PER_STRIP_MAX 120
 int NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_MAX;
 int N_L_P_S = NUM_LEDS_PER_STRIP;
@@ -19,6 +20,9 @@ int N_L_P_S = NUM_LEDS_PER_STRIP;
 //#define DEBUG_dmx 1
 //#define DEBUG_dmxframe 1
 //#define DEBUG_STR 1
+//#define DEBUG_calibre_btn 1
+#define DEBUG_btn 1
+
 
 /////////////////////////////////////////lib/////////////////////////////////////////
 #include "K32.h"
@@ -144,8 +148,12 @@ float str_blind_l = 1;
 ///////////////////////////////////// batterie variable /////////////////////////////////////
 
 int percentage;
-int led_niv = 10;
+int led_niv = 25;
 int etat_r = 0;
+
+///////////////////////////////////// botton variable /////////////////////////////////////
+
+bool lock = false;
 
 ///////////////////////////////////// Artnet settings /////////////////////////////////////
 ArtnetWifi artnet;
@@ -186,6 +194,7 @@ void setup() {
     .beaconInterval   = 3000      // full beacon interval milliseconds (0 = disable)
   });// OSC
 
+  bat_custom();
 #ifdef DEBUG
   Serial.print("Starting ");
   Serial.println(nodeName);
@@ -214,33 +223,27 @@ void setup() {
 
 ///////////////////////////////////////// LOOP /////////////////////////////////////////////////
 void loop() {
-
   if (k32->wifi->isConnected()) {
-    artnet.read();
-    eff_modulo();
+    if (!lock) artnet.read();
   }// if wifi
 
   if ((millis() - lastRefresh) > REFRESH) {
     if (!k32->wifi->isConnected()) {
-      ledBlack();//passe led noir
+      if (!lock) ledBlack();//passe led noir
     }
     lastRefresh = millis();
   }
-  // MILLIS overflow protection
-  if (millis() < lastRefresh) {
-    lastRefresh = millis();
-  }
 
-      // BATTERIE
-      if ((millis() - lastRefresh_bat) > REFRESH_BAT) {
-        get_percentage();
-        lastRefresh_bat = millis();
-      }
-      // MILLIS overflow protection
-      if (millis() < lastRefresh_bat) {
-        lastRefresh_bat = millis();
-      }
+  // BATTERIE
+  if ((millis() - lastRefresh_bat) > REFRESH_BAT) {
+    get_percentage();
+    lastRefresh_bat = millis();
+  }
+  
+  // MILLIS overflow protection
+  if (millis() < lastRefresh) lastRefresh = millis();
+  if (millis() < lastRefresh_bat) lastRefresh_bat = millis();
 
   check_button();// 4 buttons
-
+  eff_modulo();
 }//loop
