@@ -39,14 +39,15 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
 
     pix_pos = (((pix_start + N_L_P_S + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
 
+    pix_center = ((pix_start) / 2) + pix_pos;
+
     //  } else if (pix_mod >= 21 && pix_mod <= 30 || pix_mod >= 61 && pix_mod <= 90 || pix_mod >= 121 && pix_mod <= 150) {
     //    pix_pos = (((pix_start + NUM_LEDS_PER_STRIP + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
     //  }
 
     modulo = data[adr + 7];
     str_ws = (data[adr + 8] * data[adr + 8]) / 33;
-    pix_center = ((pix_start) / 2) + pix_pos;
-    //  M_g = (NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS;
+
     srr = (data[adr + 9] * data[adr + 9]) / 255;
     sgg = (data[adr + 10] * data[adr + 10]) / 255;
     sbb = (data[adr + 11] * data[adr + 11]) / 255;
@@ -139,50 +140,50 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     memset(universesReceived, 0, maxUniverses);
   }//sendFrame
 
-  #ifdef DEBUG_dmx
-    Serial.print("data [1] = ");
-    Serial.println(data [1]);
-    Serial.print("data [2] = ");
-    Serial.println(data [2]);
-    Serial.print("master = ");
-    Serial.println(master);
-    Serial.print("r = ");
-    Serial.println(rr);
-    Serial.print("g = ");
-    Serial.println(gg);
-    Serial.print("b = ");
-    Serial.println(bb);
-    Serial.print("w = ");
-    Serial.println(ww);
-    Serial.print("pix_mod = ");
-    Serial.println(pix_mod);
-    Serial.print("pix_start = ");
-    Serial.println(pix_start);
-    Serial.print("pix_center = ");
-    Serial.println(pix_center);
-    Serial.print("pix_end = ");
-    Serial.println(pix_end);
-    Serial.print("pix_pos = ");
-    Serial.println(pix_pos);
-    Serial.print("modulo = ");
-    Serial.println(modulo);
-    Serial.print("str_ws = ");
-    Serial.println(str_ws);
-    Serial.print(" srr = ");
-    Serial.println(srr);
-    Serial.print(" sgg = ");
-    Serial.println(sgg);
-    Serial.print(" sbb = ");
-    Serial.println(sbb);
-    Serial.print(" sww = ");
-    Serial.println(sww);
-    Serial.print(" color_mode = ");
-    Serial.println(color_mode);
-    Serial.print(" mirror = ");
-    Serial.println(mirror);
-    Serial.print(" ledChannelOne = ");
-    Serial.println(ledChannelOne);
-    Serial.print(" ledChannelTwo = ");
-    Serial.println(ledChannelTwo);
+#ifdef DEBUG_dmx
+  Serial.print("data [1] = ");
+  Serial.println(data [1]);
+  Serial.print("data [2] = ");
+  Serial.println(data [2]);
+  Serial.print("master = ");
+  Serial.println(master);
+  Serial.print("r = ");
+  Serial.println(rr);
+  Serial.print("g = ");
+  Serial.println(gg);
+  Serial.print("b = ");
+  Serial.println(bb);
+  Serial.print("w = ");
+  Serial.println(ww);
+  Serial.print("pix_mod = ");
+  Serial.println(pix_mod);
+  Serial.print("pix_start = ");
+  Serial.println(pix_start);
+  Serial.print("pix_center = ");
+  Serial.println(pix_center);
+  Serial.print("pix_end = ");
+  Serial.println(pix_end);
+  Serial.print("pix_pos = ");
+  Serial.println(pix_pos);
+  Serial.print("modulo = ");
+  Serial.println(modulo);
+  Serial.print("str_ws = ");
+  Serial.println(str_ws);
+  Serial.print(" srr = ");
+  Serial.println(srr);
+  Serial.print(" sgg = ");
+  Serial.println(sgg);
+  Serial.print(" sbb = ");
+  Serial.println(sbb);
+  Serial.print(" sww = ");
+  Serial.println(sww);
+  Serial.print(" color_mode = ");
+  Serial.println(color_mode);
+  Serial.print(" mirror = ");
+  Serial.println(mirror);
+  Serial.print(" ledChannelOne = ");
+  Serial.println(ledChannelOne);
+  Serial.print(" ledChannelTwo = ");
+  Serial.println(ledChannelTwo);
 #endif
 }//onframedmx
