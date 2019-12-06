@@ -7,9 +7,10 @@
 #define LULU_UNI  0                     // DMX Universe to listen for
 
 #define LULU_VER  37
+#define LULU_PATCHSIZE 18
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
-#define adr (1+(LULU_ID-1)*19)
+#define adr (1+(LULU_ID-1)*LULU_PATCHSIZE+1)
 #define NUM_LEDS_PER_STRIP_MAX 120
 int NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_MAX;
 int N_L_P_S = NUM_LEDS_PER_STRIP;
@@ -147,6 +148,10 @@ int percentage;
 int led_niv = 10;
 int etat_r = 0;
 
+///////////////////////////////////// botton variable /////////////////////////////////////
+
+bool lock = false;
+
 ///////////////////////////////////// Artnet settings /////////////////////////////////////
 ArtnetWifi artnet;
 ////const int startUniverse = 0; // CHANGE FOR YOUR SETUP most software this is 1, some software send out artnet first universe as 0.
@@ -186,6 +191,7 @@ void setup() {
     .beaconInterval   = 3000      // full beacon interval milliseconds (0 = disable)
   });// OSC
 
+  bat_custom();
 #ifdef DEBUG
   Serial.print("Starting ");
   Serial.println(nodeName);
@@ -216,13 +222,13 @@ void setup() {
 void loop() {
 
   if (k32->wifi->isConnected()) {
-    artnet.read();
+    if (lock) artnet.read();
     eff_modulo();
   }// if wifi
 
   if ((millis() - lastRefresh) > REFRESH) {
     if (!k32->wifi->isConnected()) {
-      ledBlack();//passe led noir
+      if (!lock) ledBlack();//passe led noir
     }
     lastRefresh = millis();
   }
@@ -231,15 +237,15 @@ void loop() {
     lastRefresh = millis();
   }
 
-      // BATTERIE
-      if ((millis() - lastRefresh_bat) > REFRESH_BAT) {
-        get_percentage();
-        lastRefresh_bat = millis();
-      }
-      // MILLIS overflow protection
-      if (millis() < lastRefresh_bat) {
-        lastRefresh_bat = millis();
-      }
+  // BATTERIE
+  if ((millis() - lastRefresh_bat) > REFRESH_BAT) {
+    get_percentage();
+    lastRefresh_bat = millis();
+  }
+  // MILLIS overflow protection
+  if (millis() < lastRefresh_bat) {
+    lastRefresh_bat = millis();
+  }
 
   check_button();// 4 buttons
 

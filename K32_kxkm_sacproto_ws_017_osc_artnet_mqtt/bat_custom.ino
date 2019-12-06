@@ -1,11 +1,12 @@
 void bat_custom() {
-  // serial stm_32
-  Serial.begin(115200, SERIAL_8N1);
-  Serial.setTimeout(10);
-  //init_seuil_bat
-  sendSerialCommand(KXKM_STM32_Energy::SET_BATTERY_VOLTAGE_LOW, 21700);
-  sendSerialCommand(KXKM_STM32_Energy::SET_BATTERY_VOLTAGE_1, 23100);
-  sendSerialCommand(KXKM_STM32_Energy::SET_BATTERY_VOLTAGE_2, 23500);
-  sendSerialCommand(KXKM_STM32_Energy::SET_BATTERY_VOLTAGE_3, 24500);
-  sendSerialCommand(KXKM_STM32_Energy::SET_BATTERY_VOLTAGE_6, 29400);
+  int Ulow = 21700;
+  int U1 = 23100;
+  int U2 = 23500;
+  int U3 = 24500;
+  int U4 = 26500;
+  int U5 = 28000;
+  int Umax = 29400;
+
+  k32->system->stm32->custom( Ulow, U1,  U2, U3, U4, U5, Umax);// set CUSTOM profile
+
 }// void bat_custom()

@@ -1,8 +1,6 @@
 int lock_count = 0;
-uint8_t lock = 0;
 uint8_t pr = 0;
 uint8_t bt = 0;
-uint8_t button = 0;
 #define BT_T 100
 int sensorValue = 0;
 int som_Value = 0;
@@ -52,13 +50,15 @@ void check_button () {
   } else if (sensorValue > 410 && sensorValue < 450) {
     lock_count  += 1;
     if (lock_count > 500) {
-      lock += 1;
+      lock = !lock;
       lock_count = 0;
     }
-    if (lock > 1) lock = 0;
     pr = 2; bt = 34;// bt3 4
     for (int i = NUM_LEDS_PER_STRIP_MAX  ; i < NUM_LEDS_PER_STRIP_MAX + 2 ; i++) {
-      if (lock != 0)  strands[1]->pixels[i] = pixelFromRGB(80, 80, 80);
+      if (lock) {
+        strands[1]->pixels[i] = pixelFromRGB(80, 80, 80);
+        manu_frame(0);
+      }
       else  strands[1]->pixels[i] = pixelFromRGB(0, 0, 0);
 #ifdef DEBUG
       Serial.println("/////bt3 4");
@@ -66,7 +66,7 @@ void check_button () {
     }//for i
   }
 
-  if (lock != 0 && pr == 0 && bt == 0) {
+  if (lock && pr == 0 && bt == 0) {
     if (sensorValue > 1650 && sensorValue < 1700) {
       pr = 1; bt = 1; // bt1
     } else if (sensorValue > 910 && sensorValue < 1000) {
@@ -118,23 +118,13 @@ void check_button () {
 #ifdef DEBUG
         Serial.println("/////bt2 4");
 #endif
-      }//for i
-    }
-//        else if (sensorValue > 410 && sensorValue < 450) {
-//          pr = 2; bt = 34;// bt3 4
-//          for (int i = NUM_LEDS_PER_STRIP_MAX  ; i < NUM_LEDS_PER_STRIP_MAX + 2 ; i++) {
-//            if (lock != 0)  strands[1]->pixels[i] = pixelFromRGB(80, 80, 80);
-//            else  strands[1]->pixels[i] = pixelFromRGB(0, 0, 0);
-//    #ifdef DEBUG
-//            Serial.println("/////bt3 4");
-//    #endif
-//          }//for i
-//        }
+      }// for i
+    }// else if
   }// pr > 1
 
-  if (lock != 0 && pr == 0 && bt != 0) {
+  if (lock && pr == 0 && bt != 0) {
     if (bt == 1) {
-      button = 1;
+      manu_frame(1);
 #ifdef DEBUG
       Serial.println("/////bt1");
 #endif
@@ -142,7 +132,7 @@ void check_button () {
         strands[1]->pixels[i] = pixelFromRGB(40, 0, 0);
       }//for i
     } else if (bt == 2) {
-      button = 2;
+      manu_frame(2);
 #ifdef DEBUG
       Serial.println("/////bt2");
 #endif
@@ -150,7 +140,7 @@ void check_button () {
         strands[1]->pixels[i] = pixelFromRGB(0, 40, 0);
       }//for i
     } else if  (bt == 3) {
-      button = 3;
+      manu_frame(3);
 #ifdef DEBUG
       Serial.println("/////bt3");
 #endif
@@ -158,7 +148,7 @@ void check_button () {
         strands[1]->pixels[i] = pixelFromRGB(0, 0, 40);
       }//for i
     } else if  (bt == 4) {
-      button = 4;
+      manu_frame(4);
 #ifdef DEBUG
       Serial.println("/////bt4");
 #endif
