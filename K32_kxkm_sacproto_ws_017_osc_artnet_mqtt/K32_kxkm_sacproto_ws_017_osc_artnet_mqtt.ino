@@ -1,6 +1,6 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
 //#define K32_SET_NODEID        66 // board unique id    (necessary first time only)
-//#define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
+#define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
 
 #define LULU_ID   17
 #define LULU_TYPE "SK_PWM"
@@ -206,7 +206,7 @@ void setup() {
   ///////////////////////////////////////////////// CORE //////////////////////////////////////
   //  create a task that will be executed in the Map1code() function, with priority 1 and executed on core 0
   xTaskCreatePinnedToCore(Map1code, "Map1code", 4096, NULL, 1, NULL, 1);   // core 1 = loop
-  xTaskCreatePinnedToCore(effTask, "effTask", 4096, NULL, 1, NULL, 0);    // core 0 = wifi
+  xTaskCreatePinnedToCore(effTask, "effTask", 4096, NULL, 1, NULL, 1);    // core 0 = wifi
 
   ///////////////////////////////////////////////// osc //////////////////////////////////////
 
