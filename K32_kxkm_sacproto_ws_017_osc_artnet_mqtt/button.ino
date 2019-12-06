@@ -57,7 +57,6 @@ void check_button () {
     for (int i = NUM_LEDS_PER_STRIP_MAX  ; i < NUM_LEDS_PER_STRIP_MAX + 2 ; i++) {
       if (lock) {
         strands[1]->pixels[i] = pixelFromRGB(80, 80, 80);
-        manu_frame(0);
       }
       else  strands[1]->pixels[i] = pixelFromRGB(0, 0, 0);
 #ifdef DEBUG
@@ -148,7 +147,7 @@ void check_button () {
         strands[1]->pixels[i] = pixelFromRGB(0, 0, 40);
       }//for i
     } else if  (bt == 4) {
-      manu_frame(4);
+      manu_frame(0);
 #ifdef DEBUG
       Serial.println("/////bt4");
 #endif
