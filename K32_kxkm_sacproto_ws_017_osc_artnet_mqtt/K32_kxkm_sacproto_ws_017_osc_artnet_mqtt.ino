@@ -17,9 +17,12 @@ int N_L_P_S = NUM_LEDS_PER_STRIP;
 
 /////////////////////////////////////////Debug///////////////////////////////////////
 #define DEBUG 1
-#define DEBUG_dmx 1
+//#define DEBUG_dmx 1
 //#define DEBUG_dmxframe 1
 //#define DEBUG_STR 1
+//#define DEBUG_calibre_btn 1
+#define DEBUG_btn 1
+
 
 /////////////////////////////////////////lib/////////////////////////////////////////
 #include "K32.h"
@@ -145,7 +148,7 @@ float str_blind_l = 1;
 ///////////////////////////////////// batterie variable /////////////////////////////////////
 
 int percentage;
-int led_niv = 10;
+int led_niv = 25;
 int etat_r = 0;
 
 ///////////////////////////////////// botton variable /////////////////////////////////////
@@ -212,7 +215,7 @@ void setup() {
   ///////////////////////////////////////////////// CORE //////////////////////////////////////
   //  create a task that will be executed in the Map1code() function, with priority 1 and executed on core 0
   xTaskCreatePinnedToCore(Map1code, "Map1code", 4096, NULL, 1, NULL, 1);   // core 1 = loop
-  xTaskCreatePinnedToCore(effTask, "effTask", 4096, NULL, 1, NULL, 0);    // core 0 = wifi
+  xTaskCreatePinnedToCore(effTask, "effTask", 4096, NULL, 1, NULL, 1);    // core 0 = wifi
 
   ///////////////////////////////////////////////// osc //////////////////////////////////////
 
@@ -242,6 +245,5 @@ void loop() {
   if (millis() < lastRefresh_bat) lastRefresh_bat = millis();
 
   check_button();// 4 buttons
-
   eff_modulo();
 }//loop

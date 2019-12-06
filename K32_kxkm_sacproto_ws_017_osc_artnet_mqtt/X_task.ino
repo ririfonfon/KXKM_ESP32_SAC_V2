@@ -97,7 +97,8 @@ void Map1code( void * pvParameters ) {
 void effTask( void * pvParameters ) {
   while (1) {
     do_effet_0();
+    Serial.println("led_show");
     leds_show();
-    yield(); // rend la main
+    delay(1); // rend la main
   }
 }//effTask
