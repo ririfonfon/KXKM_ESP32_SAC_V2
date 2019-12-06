@@ -7,17 +7,17 @@
 #define LULU_UNI  0                     // DMX Universe to listen for
 
 #define LULU_VER  37
-#define LULU_PATCHSIZE 18
+#define LULU_PATCHSIZE 19
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
-#define adr (1+(LULU_ID-1)*LULU_PATCHSIZE+1)
+#define adr (1+(LULU_ID-1)*(LULU_PATCHSIZE))
 #define NUM_LEDS_PER_STRIP_MAX 120
 int NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_MAX;
 int N_L_P_S = NUM_LEDS_PER_STRIP;
 
 /////////////////////////////////////////Debug///////////////////////////////////////
 #define DEBUG 1
-//#define DEBUG_dmx 1
+#define DEBUG_dmx 1
 //#define DEBUG_dmxframe 1
 //#define DEBUG_STR 1
 
@@ -220,10 +220,8 @@ void setup() {
 
 ///////////////////////////////////////// LOOP /////////////////////////////////////////////////
 void loop() {
-
   if (k32->wifi->isConnected()) {
-    if (lock) artnet.read();
-    eff_modulo();
+    if (!lock) artnet.read();
   }// if wifi
 
   if ((millis() - lastRefresh) > REFRESH) {
@@ -232,21 +230,18 @@ void loop() {
     }
     lastRefresh = millis();
   }
-  // MILLIS overflow protection
-  if (millis() < lastRefresh) {
-    lastRefresh = millis();
-  }
 
   // BATTERIE
   if ((millis() - lastRefresh_bat) > REFRESH_BAT) {
     get_percentage();
     lastRefresh_bat = millis();
   }
+  
   // MILLIS overflow protection
-  if (millis() < lastRefresh_bat) {
-    lastRefresh_bat = millis();
-  }
+  if (millis() < lastRefresh) lastRefresh = millis();
+  if (millis() < lastRefresh_bat) lastRefresh_bat = millis();
 
   check_button();// 4 buttons
 
+  eff_modulo();
 }//loop
