@@ -176,7 +176,7 @@ void setup() {
     .beaconInterval   = 3000      // full beacon interval milliseconds (0 = disable)
   });// OSC
 
-  bat_custom();
+  bat_custom_on();
 #ifdef DEBUG
   Serial.print("Starting ");
   Serial.println(nodeName);
