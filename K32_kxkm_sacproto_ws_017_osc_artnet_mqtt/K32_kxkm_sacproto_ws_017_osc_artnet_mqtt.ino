@@ -3,7 +3,7 @@
 //#define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
 
 #define LULU_VER  38
-#define LULU_ID   17
+#define LULU_ID   3
 
 #define LULU_TYPE "Sac_WS_PWM"
 #define LULU_UNI  0                     // DMX Universe to listen for
@@ -17,7 +17,7 @@ int NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_MAX;
 int N_L_P_S = NUM_LEDS_PER_STRIP;
 
 /////////////////////////////////////////Debug///////////////////////////////////////
-#define DEBUG 1
+//#define DEBUG 1
 //#define DEBUG_dmx 1
 //#define DEBUG_dmxframe 1
 //#define DEBUG_STR 1
