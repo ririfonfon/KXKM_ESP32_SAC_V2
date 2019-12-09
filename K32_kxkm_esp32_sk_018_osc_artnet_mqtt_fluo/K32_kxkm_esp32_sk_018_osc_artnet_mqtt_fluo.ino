@@ -1,18 +1,18 @@
+#define LULU_VER  38
 /////////////////////////////////////////ID/////////////////////////////////////////
-#define K32_SET_NODEID        62 // board unique id    (necessary first time only)
+#define K32_SET_NODEID        87 // board unique id    (necessary first time only)
 #define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
 
-#define LULU_VER  38
-#define LULU_ID   10
+#define LULU_ID   5
 
-#define LULU_TYPE "Fluo_SK_PWM"
+#define LULU_TYPE "Pince_SK_PWM"
 #define LULU_UNI  0                     // DMX Universe to listen for
 
 #define LULU_PATCHSIZE 19
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
 #define adr (1+(LULU_ID-1)*(LULU_PATCHSIZE))
-#define NUM_LEDS_PER_STRIP_MAX 73
+#define NUM_LEDS_PER_STRIP_MAX 17 // fluo 73 pince 17
 int NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_MAX;
 int N_L_P_S = NUM_LEDS_PER_STRIP;
 
