@@ -1,3 +1,5 @@
+#include "K32.h"
+
 #define LULU_VER  38
 /////////////////////////////////////////ID/////////////////////////////////////////
 #define K32_SET_NODEID        87 // board unique id    (necessary first time only)
@@ -5,16 +7,14 @@
 
 #define LULU_ID   5
 
-#define LULU_TYPE "Pince_SK_PWM"
+#define LULU_TYPE 3
+// 1="Sac" 2="Barre" 3="Pince" 4="Fluo"
+
+#define RUBAN_TYPE LED_SK6812W_V1
+// LED_WS2812_V1  LED_WS2812B_V1  LED_WS2812B_V2  LED_WS2812B_V3  LED_WS2813_V1  LED_WS2813_V2   LED_WS2813_V3  LED_WS2813_V4  LED_SK6812_V1  LED_SK6812W_V1,
+
 #define LULU_UNI  0                     // DMX Universe to listen for
-
 #define LULU_PATCHSIZE 19
-
-/////////////////////////////////////////Adresse/////////////////////////////////////
-#define adr (1+(LULU_ID-1)*(LULU_PATCHSIZE))
-#define NUM_LEDS_PER_STRIP_MAX 17 // fluo 73 pince 17
-int NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_MAX;
-int N_L_P_S = NUM_LEDS_PER_STRIP;
 
 /////////////////////////////////////////Debug///////////////////////////////////////
 //#define DEBUG 1
@@ -24,9 +24,39 @@ int N_L_P_S = NUM_LEDS_PER_STRIP;
 //#define DEBUG_calibre_btn 1
 //#define DEBUG_btn 1
 
+/////////////////////////////////////////def RUBAN_TYPE & LULU_TYPE /////////////////////////////////////////
+#ifdef RUBAN_TYPE
+#if RUBAN_TYPE == LED_SK6812_V1
+#define R_TYPE "_SK"
+#elif RUBAN_TYPE == LED_SK6812W_V1
+#define R_TYPE "_SK"
+#else
+#define R_TYPE "_WS"
+#endif
+#endif
+
+#ifdef LULU_TYPE
+#if LULU_TYPE == 1
+#define NUM_LEDS_PER_STRIP_MAX 120
+#define L_TYPE "Sac"
+#elif LULU_TYPE == 2
+#define NUM_LEDS_PER_STRIP_MAX 120
+#define L_TYPE "Barre"
+#elif LULU_TYPE == 3
+#define NUM_LEDS_PER_STRIP_MAX 17
+#define L_TYPE "Pince"
+#elif LULU_TYPE == 4
+#define NUM_LEDS_PER_STRIP_MAX 73
+#define L_TYPE "Fluo"
+#endif
+#endif
+
+/////////////////////////////////////////Adresse/////////////////////////////////////
+#define adr (1+(LULU_ID-1)*(LULU_PATCHSIZE))
+int NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_MAX;
+int N_L_P_S = NUM_LEDS_PER_STRIP;
 
 /////////////////////////////////////////lib/////////////////////////////////////////
-#include "K32.h"
 #include <ArtnetWifi.h>           //https://github.com/rstephan/ArtnetWifi
 unsigned long lastRefresh = 0;
 #define REFRESH 10
@@ -156,7 +186,7 @@ void setup() {
   //////////////////////////////////////// K32_lib ////////////////////////////////////
   k32 = new K32();
 
-  nodeName += String(LULU_TYPE) + "-" + String(LULU_ID) + "-v" + String(LULU_VER);
+  nodeName += String(L_TYPE) + String(R_TYPE) + "-" + String(LULU_ID) + "-v" + String(LULU_VER);
   PINS[0] = k32->system->ledpin(0);
   PINS[1] = k32->system->ledpin(1);
 
@@ -228,6 +258,6 @@ void loop() {
   if (millis() < lastRefresh) lastRefresh = millis();
   if (millis() < lastRefresh_bat) lastRefresh_bat = millis();
 
-//  check_button();// 4 buttons
+  //  check_button();// 4 buttons
   eff_modulo();
 }//loop
