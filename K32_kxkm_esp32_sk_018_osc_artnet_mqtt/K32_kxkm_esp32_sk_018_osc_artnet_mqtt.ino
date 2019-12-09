@@ -1,11 +1,11 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
-//#define K32_SET_NODEID        66 // board unique id    (necessary first time only)
-//#define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
+#define K32_SET_NODEID        66 // board unique id    (necessary first time only)
+#define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
 
 #define LULU_VER  38
-#define LULU_ID   17
+#define LULU_ID   3
 
-#define LULU_TYPE "Tube_SK_PWM"
+#define LULU_TYPE "Barre_SK_PWM"
 #define LULU_UNI  0                     // DMX Universe to listen for
 
 #define LULU_PATCHSIZE 19
@@ -17,7 +17,7 @@ int NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_MAX;
 int N_L_P_S = NUM_LEDS_PER_STRIP;
 
 /////////////////////////////////////////Debug///////////////////////////////////////
-#define DEBUG 1
+//#define DEBUG 1
 //#define DEBUG_dmx 1
 //#define DEBUG_dmxframe 1
 //#define DEBUG_STR 1
