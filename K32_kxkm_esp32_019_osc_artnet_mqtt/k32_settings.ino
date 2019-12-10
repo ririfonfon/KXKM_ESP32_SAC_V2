@@ -21,7 +21,9 @@ void k32_settings() {
   k32->system->preferences.putString("L_type", L_TYPE);
 #endif
 #ifdef NUM_LEDS_PER_STRIP_MAX
-  k32->system->preferences.putUInt("NUM_LEDS_PER_STRIP_max", NUM_LEDS_PER_STRIP_MAX);
+  Serial.println("SET NUM leds");
+  Serial.println(NUM_LEDS_PER_STRIP_MAX);
+  k32->system->preferences.putUInt("NUM_leds", NUM_LEDS_PER_STRIP_MAX);
 #endif
 
   // Load from EEPROM
@@ -31,7 +33,10 @@ void k32_settings() {
   RUBAN_type = k32->system->preferences.getUInt("RUBAN_type", LED_SK6812W_V1);
   R_type = k32->system->preferences.getString("R_type", "_SK");
   L_type = k32->system->preferences.getString("L_type", "Flex");
-  NUM_LEDS_PER_STRIP_max = k32->system->preferences.getUInt("NUM_LEDS_PER_STRIP_max", 186);
+  NUM_LEDS_PER_STRIP_max = k32->system->preferences.getUInt("NUM_leds", 186);
+
+  Serial.println("GET NUM leds");
+  Serial.println(NUM_LEDS_PER_STRIP_max);
 
   // Calculate adr // channels
   adr = (1 + (LULU_id - 1) * (LULU_PATCHSIZE));
