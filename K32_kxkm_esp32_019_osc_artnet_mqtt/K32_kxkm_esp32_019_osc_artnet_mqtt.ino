@@ -1,14 +1,14 @@
 #include "K32.h"
 
-#define LULU_VER  38
+#define LULU_VER  40
 /////////////////////////////////////////ID/////////////////////////////////////////
-#define K32_SET_NODEID        87 // board unique id    (necessary first time only)
-#define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
+//#define K32_SET_NODEID        87 // board unique id    (necessary first time only)
+//#define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
 
 #define LULU_ID   5
 
 #define LULU_TYPE 3
-// 1="Sac" 2="Barre" 3="Pince" 4="Fluo"
+// 1="Sac" 2="Barre" 3="Pince" 4="Fluo" 5="Flex" 6="H&S"
 
 #define RUBAN_TYPE LED_SK6812W_V1
 // LED_WS2812_V1  LED_WS2812B_V1  LED_WS2812B_V2  LED_WS2812B_V3  LED_WS2813_V1  LED_WS2813_V2   LED_WS2813_V3  LED_WS2813_V4  LED_SK6812_V1  LED_SK6812W_V1,
@@ -48,6 +48,9 @@
 #elif LULU_TYPE == 4
 #define NUM_LEDS_PER_STRIP_MAX 73
 #define L_TYPE "Fluo"
+#elif LULU_TYPE == 5
+#define NUM_LEDS_PER_STRIP_MAX 186
+#define L_TYPE "Flex"
 #endif
 #endif
 
