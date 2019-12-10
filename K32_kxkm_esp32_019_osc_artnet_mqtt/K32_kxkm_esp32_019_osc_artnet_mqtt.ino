@@ -1,15 +1,14 @@
 #include "K32.h"
 
-#define LULU_VER  40
+#define LULU_VER  41
 
 /////////////////////////////////////////ID/////////////////////////////////////////
 //#define K32_SET_NODEID        87 // board unique id    (necessary first time only)
 //#define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
 
 // #define RUBAN_TYPE LED_SK6812W_V1  // LED_WS2812_V1  LED_WS2812B_V1  LED_WS2812B_V2  LED_WS2812B_V3  LED_WS2813_V1  LED_WS2813_V2   LED_WS2813_V3  LED_WS2813_V4  LED_SK6812_V1  LED_SK6812W_V1,
-
 // #define LULU_ID   5                // permet de calculer l'adresse DMX
-// #define LULU_TYPE 3                // 1="Sac" 2="Barre" 3="Pince" 4="Fluo" 5="Flex" 6="H&S"
+ #define LULU_TYPE 3                // 1="Sac" 2="Barre" 3="Pince" 4="Fluo" 5="Flex" 6="H&S"
 // #define LULU_UNI  0                // Univers DMX
 
 /////////////////////////////////////////Debug///////////////////////////////////////
@@ -199,7 +198,8 @@ void setup() {
 
   //////////////////////////////////////// K32 modules ////////////////////////////////////
   k32->init_stm32();
-
+  k32_settings();
+  
   // WIFI
   k32->init_wifi( nodeName );
   k32->wifi->staticIP("2.0.0." + String(k32->system->id() + 100), "2.0.0.1", "255.0.0.0");
@@ -268,55 +268,3 @@ void loop() {
   //  check_button();// 4 buttons
   eff_modulo();
 }//loop
-
-
-void settings() {
-
-  // Save to EEPROM if DEFINE
-  #ifdef LULU_ID
-    k32->system->preferences.putUInt("LULU_id", LULU_ID);
-  #endif
-  #ifdef LULU_TYPE
-    k32->system->preferences.putUInt("LULU_type", LULU_TYPE);
-  #endif
-  #ifdef LULU_UNI
-    k32->system->preferences.putUInt("LULU_uni", LULU_UNI);
-  #endif
-  #ifdef RUBAN_TYPE
-    k32->system->preferences.putUInt("RUBAN_type", RUBAN_TYPE);
-  #endif
-  #ifdef R_TYPE
-    k32->system->preferences.putString("R_type", R_TYPE);
-  #endif
-  #ifdef L_TYPE
-    k32->system->preferences.putString("L_type", L_TYPE);
-  #endif
-  #ifdef NUM_LEDS_PER_STRIP_MAX
-    k32->system->preferences.putUInt("NUM_LEDS_PER_STRIP_max", NUM_LEDS_PER_STRIP_MAX);
-  #endif
-
-  // Load from EEPROM
-  LULU_id = k32->system->preferences.getUInt("LULU_id", 1);
-  LULU_type = k32->system->preferences.getUInt("LULU_type", 5);
-  LULU_uni = k32->system->preferences.getUInt("LULU_uni", 0);
-  RUBAN_type = k32->system->preferences.getUInt("RUBAN_type", LED_SK6812W_V1);
-  R_type = k32->system->preferences.getString("R_type", "_SK");
-  L_type = k32->system->preferences.getString("L_type", "Flex");
-  NUM_LEDS_PER_STRIP_max = k32->system->preferences.getUInt("NUM_LEDS_PER_STRIP_max", 186);
-
-  // Calculate adr // channels
-  adr = (1+(LULU_id-1)*(LULU_PATCHSIZE));
-  numberOfChannels = NUM_STRIPS * NUM_LEDS_PER_STRIP_max * 4;
-  maxUniverses = numberOfChannels / 512 + ((numberOfChannels % 512) ? 1 : 0);
-  startUniverse = LULU_uni;
-
-  // Calculate NUM leds MAX & L/R TYPE
-  NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_max;
-  N_L_P_S = NUM_LEDS_PER_STRIP_max;
-
-  // Make name and PINS
-  nodeName += L_type + R_type + "-" + String(LULU_id) + "-v" + String(LULU_VER);
-  PINS[0] = k32->system->ledpin(0);
-  PINS[1] = k32->system->ledpin(1);
-
-}
