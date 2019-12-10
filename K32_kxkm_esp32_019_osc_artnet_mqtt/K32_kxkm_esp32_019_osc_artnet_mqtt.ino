@@ -1,20 +1,16 @@
 #include "K32.h"
 
 #define LULU_VER  40
+
 /////////////////////////////////////////ID/////////////////////////////////////////
 //#define K32_SET_NODEID        87 // board unique id    (necessary first time only)
 //#define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
 
-#define LULU_ID   5
+// #define RUBAN_TYPE LED_SK6812W_V1  // LED_WS2812_V1  LED_WS2812B_V1  LED_WS2812B_V2  LED_WS2812B_V3  LED_WS2813_V1  LED_WS2813_V2   LED_WS2813_V3  LED_WS2813_V4  LED_SK6812_V1  LED_SK6812W_V1,
 
-#define LULU_TYPE 3
-// 1="Sac" 2="Barre" 3="Pince" 4="Fluo" 5="Flex" 6="H&S"
-
-#define RUBAN_TYPE LED_SK6812W_V1
-// LED_WS2812_V1  LED_WS2812B_V1  LED_WS2812B_V2  LED_WS2812B_V3  LED_WS2813_V1  LED_WS2813_V2   LED_WS2813_V3  LED_WS2813_V4  LED_SK6812_V1  LED_SK6812W_V1,
-
-#define LULU_UNI  0                     // DMX Universe to listen for
-#define LULU_PATCHSIZE 19
+// #define LULU_ID   5                // permet de calculer l'adresse DMX
+// #define LULU_TYPE 3                // 1="Sac" 2="Barre" 3="Pince" 4="Fluo" 5="Flex" 6="H&S"
+// #define LULU_UNI  0                // Univers DMX
 
 /////////////////////////////////////////Debug///////////////////////////////////////
 //#define DEBUG 1
@@ -54,10 +50,22 @@
 #endif
 #endif
 
+#define LULU_PATCHSIZE 19          // Taille du patch DMX pour cet Fixture
+#define LEDS_ABSOLUTE_MAX 300
+
 /////////////////////////////////////////Adresse/////////////////////////////////////
-#define adr (1+(LULU_ID-1)*(LULU_PATCHSIZE))
-int NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_MAX;
-int N_L_P_S = NUM_LEDS_PER_STRIP;
+int LULU_id;
+int LULU_type;
+int LULU_uni;
+int adr;
+
+int RUBAN_type;
+String R_type;
+String L_type;
+
+int NUM_LEDS_PER_STRIP_max;
+int NUM_LEDS_PER_STRIP;
+int N_L_P_S;
 
 /////////////////////////////////////////lib/////////////////////////////////////////
 #include <ArtnetWifi.h>           //https://github.com/rstephan/ArtnetWifi
@@ -74,7 +82,7 @@ K32* k32;
 #define min(m,n) ((m)<(n)?(m):(n))
 #define NUM_STRIPS 2
 int PINS[NUM_STRIPS];
-const int numberOfChannels = NUM_STRIPS * NUM_LEDS_PER_STRIP_MAX * 4;
+int numberOfChannels;
 strand_t STRANDS[NUM_STRIPS];
 strand_t * strands [] = { &STRANDS[0], &STRANDS[1]};
 
@@ -84,25 +92,25 @@ int ledChannelTwo = 0;
 
 ///////////////////////////////////dmx variables////////////////////////////////////
 
-float zo_pi_n_1_r[NUM_LEDS_PER_STRIP_MAX];
-float zo_pi_n_1_g[NUM_LEDS_PER_STRIP_MAX];
-float zo_pi_n_1_b[NUM_LEDS_PER_STRIP_MAX];
-float zo_pi_n_1_w[NUM_LEDS_PER_STRIP_MAX];
+float zo_pi_n_1_r[LEDS_ABSOLUTE_MAX];
+float zo_pi_n_1_g[LEDS_ABSOLUTE_MAX];
+float zo_pi_n_1_b[LEDS_ABSOLUTE_MAX];
+float zo_pi_n_1_w[LEDS_ABSOLUTE_MAX];
 
-float pi_n_1_r[NUM_LEDS_PER_STRIP_MAX];
-float pi_n_1_g[NUM_LEDS_PER_STRIP_MAX];
-float pi_n_1_b[NUM_LEDS_PER_STRIP_MAX];
-float pi_n_1_w[NUM_LEDS_PER_STRIP_MAX];
+float pi_n_1_r[LEDS_ABSOLUTE_MAX];
+float pi_n_1_g[LEDS_ABSOLUTE_MAX];
+float pi_n_1_b[LEDS_ABSOLUTE_MAX];
+float pi_n_1_w[LEDS_ABSOLUTE_MAX];
 
-float pi_1_r[NUM_LEDS_PER_STRIP_MAX];
-float pi_1_g[NUM_LEDS_PER_STRIP_MAX];
-float pi_1_b[NUM_LEDS_PER_STRIP_MAX];
-float pi_1_w[NUM_LEDS_PER_STRIP_MAX];
+float pi_1_r[LEDS_ABSOLUTE_MAX];
+float pi_1_g[LEDS_ABSOLUTE_MAX];
+float pi_1_b[LEDS_ABSOLUTE_MAX];
+float pi_1_w[LEDS_ABSOLUTE_MAX];
 
-float pi_1_sr[NUM_LEDS_PER_STRIP_MAX];
-float pi_1_sg[NUM_LEDS_PER_STRIP_MAX];
-float pi_1_sb[NUM_LEDS_PER_STRIP_MAX];
-float pi_1_sw[NUM_LEDS_PER_STRIP_MAX];
+float pi_1_sr[LEDS_ABSOLUTE_MAX];
+float pi_1_sg[LEDS_ABSOLUTE_MAX];
+float pi_1_sb[LEDS_ABSOLUTE_MAX];
+float pi_1_sw[LEDS_ABSOLUTE_MAX];
 
 int color_mode;
 int mirror;
@@ -172,11 +180,11 @@ bool lostConnection = true;
 ///////////////////////////////////// Artnet settings /////////////////////////////////////
 ArtnetWifi artnet;
 ////const int startUniverse = 0; // CHANGE FOR YOUR SETUP most software this is 1, some software send out artnet first universe as 0.
-const int startUniverse = LULU_UNI; // CHANGE FOR UNIVERSE.
+int startUniverse; // CHANGE FOR UNIVERSE.
 
 // Check if we got all universes
-const int maxUniverses = numberOfChannels / 512 + ((numberOfChannels % 512) ? 1 : 0);
-bool universesReceived[maxUniverses];
+int maxUniverses;
+bool universesReceived[16];
 bool sendFrame = 1;
 int previousDataLength = 0;
 
@@ -188,10 +196,6 @@ void setup() {
 
   //////////////////////////////////////// K32_lib ////////////////////////////////////
   k32 = new K32();
-
-  nodeName += String(L_TYPE) + String(R_TYPE) + "-" + String(LULU_ID) + "-v" + String(LULU_VER);
-  PINS[0] = k32->system->ledpin(0);
-  PINS[1] = k32->system->ledpin(1);
 
   //////////////////////////////////////// K32 modules ////////////////////////////////////
   k32->init_stm32();
@@ -264,3 +268,55 @@ void loop() {
   //  check_button();// 4 buttons
   eff_modulo();
 }//loop
+
+
+void settings() {
+
+  // Save to EEPROM if DEFINE
+  #ifdef LULU_ID
+    k32->system->preferences.putUInt("LULU_id", LULU_ID);
+  #endif
+  #ifdef LULU_TYPE
+    k32->system->preferences.putUInt("LULU_type", LULU_TYPE);
+  #endif
+  #ifdef LULU_UNI
+    k32->system->preferences.putUInt("LULU_uni", LULU_UNI);
+  #endif
+  #ifdef RUBAN_TYPE
+    k32->system->preferences.putUInt("RUBAN_type", RUBAN_TYPE);
+  #endif
+  #ifdef R_TYPE
+    k32->system->preferences.putString("R_type", R_TYPE);
+  #endif
+  #ifdef L_TYPE
+    k32->system->preferences.putString("L_type", L_TYPE);
+  #endif
+  #ifdef NUM_LEDS_PER_STRIP_MAX
+    k32->system->preferences.putUInt("NUM_LEDS_PER_STRIP_max", NUM_LEDS_PER_STRIP_MAX);
+  #endif
+
+  // Load from EEPROM
+  LULU_id = k32->system->preferences.getUInt("LULU_id", 1);
+  LULU_type = k32->system->preferences.getUInt("LULU_type", 5);
+  LULU_uni = k32->system->preferences.getUInt("LULU_uni", 0);
+  RUBAN_type = k32->system->preferences.getUInt("RUBAN_type", LED_SK6812W_V1);
+  R_type = k32->system->preferences.getString("R_type", "_SK");
+  L_type = k32->system->preferences.getString("L_type", "Flex");
+  NUM_LEDS_PER_STRIP_max = k32->system->preferences.getUInt("NUM_LEDS_PER_STRIP_max", 186);
+
+  // Calculate adr // channels
+  adr = (1+(LULU_id-1)*(LULU_PATCHSIZE));
+  numberOfChannels = NUM_STRIPS * NUM_LEDS_PER_STRIP_max * 4;
+  maxUniverses = numberOfChannels / 512 + ((numberOfChannels % 512) ? 1 : 0);
+  startUniverse = LULU_uni;
+
+  // Calculate NUM leds MAX & L/R TYPE
+  NUM_LEDS_PER_STRIP = NUM_LEDS_PER_STRIP_max;
+  N_L_P_S = NUM_LEDS_PER_STRIP_max;
+
+  // Make name and PINS
+  nodeName += L_type + R_type + "-" + String(LULU_id) + "-v" + String(LULU_VER);
+  PINS[0] = k32->system->ledpin(0);
+  PINS[1] = k32->system->ledpin(1);
+
+}

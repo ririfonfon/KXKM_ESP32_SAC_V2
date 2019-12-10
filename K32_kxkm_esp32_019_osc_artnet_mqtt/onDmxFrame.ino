@@ -5,7 +5,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   sendFrame = 1;
 
   boolean tail = false;
-  if (universe == LULU_UNI) {
+  if (universe == LULU_uni) {
 
 #ifdef DEBUG_dmxframe
     Serial.print("dmx frame: ");
@@ -36,10 +36,10 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     color_mode = data[adr + 13];
     mirror = data[adr + 14];
 
-    zoom = (NUM_LEDS_PER_STRIP_MAX * data[adr + 15]) / 255;
+    zoom = (NUM_LEDS_PER_STRIP_max * data[adr + 15]) / 255;
     if (zoom <= 0) zoom = 1;
     NUM_LEDS_PER_STRIP = zoom;
-    offset = (NUM_LEDS_PER_STRIP_MAX - zoom) / 2;
+    offset = (NUM_LEDS_PER_STRIP_max - zoom) / 2;
 
     ledChannelOne = (data[adr + 16] * data[adr + 16]) / 255;
     ledChannelTwo = (data[adr + 17] * data[adr + 17]) / 255;
@@ -127,7 +127,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
         //    type_effet = 255;
       }
     }
-  }// if universe == LULU_UNI
+  }// if universe == LULU_uni
 
   previousDataLength = length;
 
