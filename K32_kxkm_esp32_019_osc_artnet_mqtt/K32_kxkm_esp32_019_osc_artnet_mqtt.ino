@@ -1,15 +1,15 @@
 #include "K32.h"
 
-#define LULU_VER  41
+#define LULU_VER  42
 
 /////////////////////////////////////////ID/////////////////////////////////////////
-// #define K32_SET_NODEID        87 // board unique id    (necessary first time only)
+// #define K32_SET_NODEID        95 // board unique id    (necessary first time only)
 // #define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
 
-#define RUBAN_TYPE LED_SK6812W_V1  // LED_WS2812_V1  LED_WS2812B_V1  LED_WS2812B_V2  LED_WS2812B_V3  LED_WS2813_V1  LED_WS2813_V2   LED_WS2813_V3  LED_WS2813_V4  LED_SK6812_V1  LED_SK6812W_V1,
-#define LULU_ID   5                // permet de calculer l'adresse DMX
-#define LULU_TYPE 3                // 1="Sac" 2="Barre" 3="Pince" 4="Fluo" 5="Flex" 6="H&S"
-#define LULU_UNI  0                // Univers DMX
+// #define RUBAN_TYPE LED_SK6812W_V1  // LED_WS2812_V1  LED_WS2812B_V1  LED_WS2812B_V2  LED_WS2812B_V3  LED_WS2813_V1  LED_WS2813_V2   LED_WS2813_V3  LED_WS2813_V4  LED_SK6812_V1  LED_SK6812W_V1,
+// #define LULU_ID   1                // permet de calculer l'adresse DMX
+// #define LULU_TYPE 7                // 1="Sac" 2="Barre" 3="Pince" 4="Fluo" 5="Flex" 6="H&S" 7="Phone"
+// #define LULU_UNI  0                // Univers DMX
 
 /////////////////////////////////////////Debug///////////////////////////////////////
 //#define DEBUG 1
@@ -46,6 +46,12 @@
 #elif LULU_TYPE == 5
 #define NUM_LEDS_PER_STRIP_MAX 186
 #define L_TYPE "Flex"
+#elif LULU_TYPE == 6
+#define NUM_LEDS_PER_STRIP_MAX 60
+#define L_TYPE "HideSee"
+#elif LULU_TYPE == 7
+#define NUM_LEDS_PER_STRIP_MAX 35
+#define L_TYPE "Phone"
 #endif
 #endif
 
@@ -161,6 +167,7 @@ int S_seuil;
 int old_S_seuil = 0;
 int a;
 float str_blind_ws = 1;
+int manu_counter = 0;
 
 ///////////////////////////////////// batterie variable /////////////////////////////////////
 
@@ -267,4 +274,11 @@ void loop() {
 
   //  check_button();// 4 buttons
   eff_modulo();
+
+  // Click on ESP
+  if (k32->system->stm32->clicked()) {
+    manu_frame(++manu_counter);
+    LOG("clicked");
+  }
+
 }//loop
