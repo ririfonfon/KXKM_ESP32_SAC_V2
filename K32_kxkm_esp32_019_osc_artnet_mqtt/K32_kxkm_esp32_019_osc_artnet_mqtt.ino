@@ -3,13 +3,13 @@
 #define LULU_VER  42
 
 /////////////////////////////////////////ID/////////////////////////////////////////
-// #define K32_SET_NODEID        95 // board unique id    (necessary first time only)
-// #define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
+ //#define K32_SET_NODEID        63 // board unique id    (necessary first time only)
+ //#define K32_SET_HWREVISION    2  // board HW revision  (necessary first time only)
 
-// #define RUBAN_TYPE LED_SK6812W_V1  // LED_WS2812_V1  LED_WS2812B_V1  LED_WS2812B_V2  LED_WS2812B_V3  LED_WS2813_V1  LED_WS2813_V2   LED_WS2813_V3  LED_WS2813_V4  LED_SK6812_V1  LED_SK6812W_V1,
-// #define LULU_ID   1                // permet de calculer l'adresse DMX
-// #define LULU_TYPE 7                // 1="Sac" 2="Barre" 3="Pince" 4="Fluo" 5="Flex" 6="H&S" 7="Phone"
-// #define LULU_UNI  0                // Univers DMX
+ //#define RUBAN_TYPE LED_SK6812W_V1  // LED_WS2812_V1  LED_WS2812B_V1  LED_WS2812B_V2  LED_WS2812B_V3  LED_WS2813_V1  LED_WS2813_V2   LED_WS2813_V3  LED_WS2813_V4  LED_SK6812_V1  LED_SK6812W_V1,
+ //#define LULU_ID   4                // permet de calculer l'adresse DMX
+ #define LULU_TYPE 5                // 1="Sac" 2="Barre" 3="Pince" 4="Fluo" 5="Flex" 6="H&S" 7="Phone"
+ //#define LULU_UNI  0                // Univers DM
 
 /////////////////////////////////////////Debug///////////////////////////////////////
 //#define DEBUG 1
