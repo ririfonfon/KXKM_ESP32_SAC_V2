@@ -276,9 +276,9 @@ void loop() {
   eff_modulo();
 
   // Click on ESP
-  /*if (k32->system->stm32->clicked()) {
+  if (k32->system->stm32->clicked()) {
     manu_frame(++manu_counter);
     LOG("clicked");
-    }*/
+  }
 
 }//loop
